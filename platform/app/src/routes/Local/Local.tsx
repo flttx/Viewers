@@ -53,26 +53,27 @@ function Local({ modePath }: LocalProps) {
   const [dropInitiated, setDropInitiated] = React.useState(false);
 
   // Initializing the dicom local dataSource
-  const dataSourceModules = extensionManager.modules[MODULE_TYPES.DATA_SOURCE];
-  const localDataSources = dataSourceModules.reduce((acc, curr) => {
-    const mods = [];
-    curr.module.forEach(mod => {
-      if (mod.type === 'localApi') {
-        mods.push(mod);
-      }
-    });
-    return acc.concat(mods);
-  }, []);
+  // const dataSourceModules = extensionManager.modules[MODULE_TYPES.DATA_SOURCE];
+  // const localDataSources = dataSourceModules.reduce((acc, curr) => {
+  //   const mods = [];
+  //   curr.module.forEach(mod => {
+  //     if (mod.type === 'localApi') {
+  //       mods.push(mod);
+  //     }
+  //   });
+  //   return acc.concat(mods);
+  // }, []);
 
-  const firstLocalDataSource = localDataSources[0];
-  const dataSource = firstLocalDataSource.createDataSource({});
+  // const firstLocalDataSource = localDataSources[0];
+  // const dataSource = firstLocalDataSource.createDataSource({});
 
   const microscopyExtensionLoaded = extensionManager.registeredExtensionIds.includes(
     '@ohif/extension-dicom-microscopy'
   );
 
   const onDrop = async acceptedFiles => {
-    const studies = await filesToStudies(acceptedFiles, dataSource);
+    const studies = await filesToStudies(acceptedFiles);
+    console.log('studies:', studies);
 
     const query = new URLSearchParams();
 
@@ -93,12 +94,14 @@ function Local({ modePath }: LocalProps) {
         modePath = 'microscopy';
       }
     }
-
     // Todo: navigate to work list and let user select a mode
-    studies.forEach(id => query.append('StudyInstanceUIDs', id));
-    query.append('datasources', 'dicomlocal');
+    // studies.forEach(id => query.append('StudyInstanceUIDs', id));
+    // query.append('datasources', 'dicomlocal');
+    // navigate(`/${modePath}?${decodeURIComponent(query.toString())}`);
+    // console.log('url:', `/viewer?${query.toString()}`);
 
-    navigate(`/${modePath}?${decodeURIComponent(query.toString())}`);
+    query.append('StudyInstanceUIDs', studies[studies.length - 1]);
+    navigate(`/viewer/dicomlocal?${query.toString()}`);
   };
 
   // Set body style
@@ -123,7 +126,7 @@ function Local({ modePath }: LocalProps) {
           {...getRootProps()}
           style={{ width: '100%', height: '100%' }}
         >
-          <div className="flex h-screen w-screen items-center justify-center ">
+          <div className="flex h-screen w-screen items-center justify-center">
             <div className="bg-secondary-dark mx-auto space-y-2 rounded-lg py-8 px-8 drop-shadow-md">
               <div className="flex items-center justify-center">
                 <Icon
@@ -149,7 +152,7 @@ function Local({ modePath }: LocalProps) {
                   </div>
                 )}
               </div>
-              <div className="flex justify-around pt-4 ">
+              <div className="flex justify-around pt-4">
                 {getLoadButton(onDrop, 'Load files', false)}
                 {getLoadButton(onDrop, 'Load folders', true)}
               </div>

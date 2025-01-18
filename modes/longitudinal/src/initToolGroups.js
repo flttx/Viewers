@@ -28,6 +28,10 @@ function initDefaultToolGroup(
   const tools = {
     active: [
       {
+        toolName: 'Import',
+        bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
+      },
+      {
         toolName: toolNames.WindowLevel,
         bindings: [{ mouseButton: Enums.MouseBindings.Primary }],
       },

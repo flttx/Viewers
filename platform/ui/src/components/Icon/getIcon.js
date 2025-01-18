@@ -119,6 +119,7 @@ import { ReactComponent as toolCalibration } from './../../assets/icons/tool-cal
 import { ReactComponent as toolFreehand } from './../../assets/icons/tool-freehand.svg';
 import { ReactComponent as toolFreehandPolygon } from './../../assets/icons/tool-freehand-polygon.svg';
 import { ReactComponent as toolPolygon } from './../../assets/icons/tool-polygon.svg';
+import { ReactComponent as toolImport } from './../../assets/icons/tool-import.svg';
 import { ReactComponent as editPatient } from './../../assets/icons/edit-patient.svg';
 import { ReactComponent as panelGroupMore } from './../../assets/icons/panel-group-more.svg';
 import { ReactComponent as panelGroupOpenClose } from './../../assets/icons/panel-group-open-close.svg';
@@ -288,6 +289,7 @@ const ICONS = {
 
   /** Tools */
   'toggle-dicom-overlay': toggleDicomOverlay,
+  'tool-import': toolImport,
   'tool-zoom': toolZoom,
   'tool-capture': toolCapture,
   'tool-layout': toolLayout,

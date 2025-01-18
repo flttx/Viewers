@@ -76,7 +76,6 @@ export default function getToolbarModule({ commandsManager, servicesManager }: w
       name: 'evaluate.cornerstoneTool',
       evaluate: ({ viewportId, button, toolNames, disabledText }) => {
         const toolGroup = toolGroupService.getToolGroupForViewport(viewportId);
-
         if (!toolGroup) {
           return;
         }

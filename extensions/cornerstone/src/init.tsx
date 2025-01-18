@@ -1,4 +1,4 @@
-import OHIF, { errorHandler } from '@ohif/core';
+import OHIF, { errorHandler, DicomMetadataStore } from '@ohif/core';
 import React from 'react';
 
 import * as cornerstone from '@cornerstonejs/core';
@@ -126,6 +126,81 @@ export default async function init({
 
   const metadataProvider = OHIF.classes.MetadataProvider;
 
+  const localFileMetadataProvider = {
+    get: function (type, imageId) {
+      if (!imageId.startsWith('dicomfile:')) {
+        return;
+      }
+
+      // 使用InstanceNumber匹配
+      const InstanceNumber = Number(imageId.split(':')[1]);
+      let instance = null;
+
+      // 查找实例
+      const studies = DicomMetadataStore.getStudyInstanceUIDs();
+      studyLoop: for (const studyUID of studies) {
+        const study = DicomMetadataStore.getStudy(studyUID);
+        for (const series of study.series) {
+          console.log('series:', series);
+          instance = series.instances.find(inst => inst.InstanceNumber === InstanceNumber);
+          if (instance) {
+            break studyLoop;
+          }
+        }
+      }
+
+      if (!instance) {
+        console.warn(`No instance found for imageId: ${imageId}`);
+        return;
+      }
+
+      console.log('instance:', instance, ',type:', type);
+
+      // 返回对应类型的元数据
+      switch (type) {
+        case 'imagePlaneModule':
+          return {
+            imageOrientationPatient: instance.ImageOrientationPatient || [1, 0, 0, 0, 1, 0],
+            imagePositionPatient: instance.ImagePositionPatient || [0, 0, 0],
+            pixelSpacing: instance.PixelSpacing || [1, 1],
+            sliceThickness: instance.SliceThickness || 1,
+            sliceLocation: instance.SliceLocation || 0,
+            frameOfReferenceUID: instance.FrameOfReferenceUID,
+          };
+
+        case 'imagePixelModule':
+          return {
+            samplesPerPixel: instance.SamplesPerPixel || 1,
+            photometricInterpretation: instance.PhotometricInterpretation || 'MONOCHROME2',
+            rows: instance.Rows,
+            columns: instance.Columns,
+            bitsAllocated: instance.BitsAllocated,
+            bitsStored: instance.BitsStored,
+            highBit: instance.HighBit,
+            pixelRepresentation: instance.PixelRepresentation || 0,
+          };
+
+        case 'generalSeriesModule':
+          return {
+            modality: instance.Modality,
+            seriesInstanceUID: instance.SeriesInstanceUID,
+            seriesNumber: instance.SeriesNumber,
+            seriesDate: instance.SeriesDate,
+            seriesTime: instance.SeriesTime,
+          };
+
+        case 'generalImageModule':
+          return {
+            instanceNumber: instance.InstanceNumber,
+            imageType: instance.ImageType,
+          };
+
+        default:
+          return;
+      }
+    },
+  };
+
   volumeLoader.registerVolumeLoader(
     'cornerstoneStreamingImageVolume',
     cornerstoneStreamingImageVolumeLoader
@@ -159,6 +234,9 @@ export default async function init({
     )
   ); // this provider is required for Calibration tool
   metaData.addProvider(metadataProvider.get.bind(metadataProvider), 9999);
+
+  // local file metadata provider
+  metaData.addProvider(localFileMetadataProvider.get.bind(localFileMetadataProvider), 10000);
 
   // These are set reasonably low to allow for interleaved retrieves and slower
   // connections.

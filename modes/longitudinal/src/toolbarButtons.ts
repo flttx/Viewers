@@ -14,6 +14,27 @@ export const setToolActiveToolbar = {
 
 const toolbarButtons: Button[] = [
   {
+    id: 'Import',
+    uiType: 'ohif.radioGroup',
+    props: {
+      icon: 'tool-import',
+      label: 'Import',
+      evaluate: ({ button }) => {
+        return {
+          disabled: false,
+          className: '!text-common-bright hover:!bg-primary-dark hover:!text-primary-light rounded',
+        };
+      },
+      commands: {
+        commandName: 'navigateHistory',
+        commandOptions: {
+          to: '/local',
+        },
+        context: 'DEFAULT',
+      },
+    },
+  },
+  {
     id: 'MeasurementTools',
     uiType: 'ohif.splitButton',
     props: {
