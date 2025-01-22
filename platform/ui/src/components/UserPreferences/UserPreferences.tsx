@@ -28,6 +28,9 @@ const UserPreferences = ({
     language: currentLanguage,
   });
 
+  // TODO: 暂时只保留中文和英文
+  const languageOptions = availableLanguages.filter(item => ['en-US', 'zh'].includes(item.value));
+
   const onSubmitHandler = () => {
     onSubmit(state);
   };
@@ -66,10 +69,10 @@ const UserPreferences = ({
 
   const Section = ({ title, children }) => (
     <>
-      <div className="mb-2 border-b-2 border-black">
+      <div className="border-border mb-2 border-b-2">
         <Typography
           variant="inherit"
-          color="primaryLight"
+          color="black"
           className="flex pb-2 text-[16px] font-semibold !leading-[1.2]"
         >
           {title}
@@ -86,13 +89,14 @@ const UserPreferences = ({
           <Typography
             variant="subtitle"
             className="mr-5 h-full text-right"
+            color="black"
           >
             {t('Language')}
           </Typography>
           <Select
             isClearable={false}
             onChange={onLanguageChangeHandler}
-            options={availableLanguages}
+            options={languageOptions}
             value={state.language}
           />
         </div>
@@ -144,7 +148,7 @@ UserPreferences.propTypes = {
   onSubmit: PropTypes.func,
   onReset: PropTypes.func,
   hotkeysModule: PropTypes.shape({
-    initialize: PropTypes.func.isRequired,
+    // initialize: PropTypes.func.isRequired,
     pause: PropTypes.func.isRequired,
     unpause: PropTypes.func.isRequired,
     startRecording: PropTypes.func.isRequired,

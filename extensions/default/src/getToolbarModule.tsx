@@ -7,9 +7,7 @@ import { ProgressDropdownWithService } from './Components/ProgressDropdownWithSe
 
 const getClassName = isToggled => {
   return {
-    className: isToggled
-      ? '!text-primary-active'
-      : '!text-common-bright hover:!bg-primary-dark hover:text-primary-light',
+    className: isToggled ? 'text-white' : 'text-button hover:!bg-primary hover:text-white',
   };
 };
 

@@ -49,7 +49,7 @@ const MeasurementTable = ({
       disableEditing={disableEditing}
     >
       <PanelSection defaultOpen={true}>
-        <PanelSection.Header className="bg-secondary-dark">
+        <PanelSection.Header className="bg-secondary">
           <span>{`${t(title)} (${amount})`}</span>
         </PanelSection.Header>
         <PanelSection.Content>{children}</PanelSection.Content>

@@ -5,10 +5,7 @@ import classnames from 'classnames';
 const TableHead = ({ children, className = '', style = {} }) => {
   return (
     <div
-      className={classnames(
-        'bg-secondary-dark border-secondary-light flex border-b pr-2 font-bold',
-        className
-      )}
+      className={classnames('bg-secondary border-border flex border-b pr-2 font-bold', className)}
       style={style}
     >
       {React.isValidElement(children)

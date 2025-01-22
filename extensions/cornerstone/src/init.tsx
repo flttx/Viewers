@@ -141,7 +141,6 @@ export default async function init({
       studyLoop: for (const studyUID of studies) {
         const study = DicomMetadataStore.getStudy(studyUID);
         for (const series of study.series) {
-          console.log('series:', series);
           instance = series.instances.find(inst => inst.InstanceNumber === InstanceNumber);
           if (instance) {
             break studyLoop;
@@ -153,8 +152,6 @@ export default async function init({
         console.warn(`No instance found for imageId: ${imageId}`);
         return;
       }
-
-      console.log('instance:', instance, ',type:', type);
 
       // 返回对应类型的元数据
       switch (type) {

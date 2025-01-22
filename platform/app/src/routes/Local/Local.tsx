@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import classnames from 'classnames';
 import { useNavigate } from 'react-router-dom';
 import { DicomMetadataStore, MODULE_TYPES } from '@ohif/core';
+import { useTranslation } from 'react-i18next';
 
 import Dropzone from 'react-dropzone';
 import filesToStudies from './filesToStudies';
@@ -22,8 +23,12 @@ const getLoadButton = (onDrop, text, isDir) => {
             rounded="full"
             variant="contained" // outlined
             disabled={false}
-            endIcon={<Icon name="launch-arrow" />} // launch-arrow | launch-info
-            className={classnames('font-medium', 'ml-2')}
+            className={classnames(
+              'font-medium',
+              'ml-2',
+              'bg-primary',
+              'hover:bg-primary-foreground'
+            )}
             onClick={() => {}}
           >
             {text}
@@ -51,6 +56,7 @@ function Local({ modePath }: LocalProps) {
   const navigate = useNavigate();
   const dropzoneRef = useRef();
   const [dropInitiated, setDropInitiated] = React.useState(false);
+  const { t } = useTranslation('Local');
 
   // Initializing the dicom local dataSource
   // const dataSourceModules = extensionManager.modules[MODULE_TYPES.DATA_SOURCE];
@@ -106,9 +112,9 @@ function Local({ modePath }: LocalProps) {
 
   // Set body style
   useEffect(() => {
-    document.body.classList.add('bg-black');
+    document.body.classList.add('bg-background');
     return () => {
-      document.body.classList.remove('bg-black');
+      document.body.classList.remove('bg-background');
     };
   }, []);
 
@@ -127,34 +133,33 @@ function Local({ modePath }: LocalProps) {
           style={{ width: '100%', height: '100%' }}
         >
           <div className="flex h-screen w-screen items-center justify-center">
-            <div className="bg-secondary-dark mx-auto space-y-2 rounded-lg py-8 px-8 drop-shadow-md">
+            <div className="bg-secondary mx-auto space-y-2 rounded-lg py-8 px-8 drop-shadow-md">
               <div className="flex items-center justify-center">
                 <Icon
-                  name="logo-dark-background"
-                  className="h-28"
+                  name="logo"
+                  className="w-50 h-16"
                 />
               </div>
               <div className="space-y-2 pt-4 text-center">
                 {dropInitiated ? (
                   <div className="flex flex-col items-center justify-center pt-48">
-                    <LoadingIndicatorProgress className={'h-full w-full bg-black'} />
+                    <LoadingIndicatorProgress className={'bg-background h-full w-full'} />
                   </div>
                 ) : (
                   <div className="space-y-2">
-                    <p className="text-base text-blue-300">
-                      Note: You data is not uploaded to any server, it will stay in your local
-                      browser application
+                    <p className="text-base text-gray-500">
+                      {t('Note')}：{t('You data is not uploaded to any server')}
                     </p>
-                    <p className="text-xg text-primary-active pt-6 font-semibold">
-                      Drag and Drop DICOM files here to load them in the Viewer
+                    <p className="text-xg pt-6 font-semibold text-gray-700">
+                      {t('Drag and Drop DICOM files here to load them in the Viewer')}
                     </p>
-                    <p className="text-lg text-blue-300">Or click to </p>
+                    <p className="text-lg text-gray-500">{t('Or click to')}</p>
                   </div>
                 )}
               </div>
               <div className="flex justify-around pt-4">
-                {getLoadButton(onDrop, 'Load files', false)}
-                {getLoadButton(onDrop, 'Load folders', true)}
+                {getLoadButton(onDrop, t('Load files'), false)}
+                {getLoadButton(onDrop, t('Load folders'), true)}
               </div>
             </div>
           </div>

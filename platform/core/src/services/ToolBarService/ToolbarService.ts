@@ -404,7 +404,6 @@ export default class ToolbarService extends PubSubService {
    */
   getButtonSection(sectionId: string, props?: Record<string, unknown>) {
     const buttonSectionIds = this.state.buttonSections[sectionId];
-
     return (
       buttonSectionIds?.map(btnId => {
         const btn = this.state.buttons[btnId];

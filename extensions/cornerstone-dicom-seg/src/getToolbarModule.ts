@@ -12,7 +12,7 @@ export function getToolbarModule({ servicesManager }: withAppTypes) {
         if (!segmentations?.length) {
           return {
             disabled: true,
-            className: '!text-common-bright !bg-black opacity-50',
+            className: '!text-button-disabled !bg-secondary opacity-50',
             disabledText: disabledText ?? 'No segmentations available',
           };
         }
@@ -22,7 +22,7 @@ export function getToolbarModule({ servicesManager }: withAppTypes) {
         if (!toolGroup) {
           return {
             disabled: true,
-            className: '!text-common-bright ohif-disabled',
+            className: '!text-button-disabled ohif-disabled',
             disabledText: disabledText ?? 'Not available on the current viewport',
           };
         }
@@ -32,7 +32,7 @@ export function getToolbarModule({ servicesManager }: withAppTypes) {
         if (!toolGroup.hasTool(toolName) && !toolNames) {
           return {
             disabled: true,
-            className: '!text-common-bright ohif-disabled',
+            className: '!text-button-disabled ohif-disabled',
             disabledText: disabledText ?? 'Not available on the current viewport',
           };
         }
@@ -44,8 +44,8 @@ export function getToolbarModule({ servicesManager }: withAppTypes) {
         return {
           disabled: false,
           className: isPrimaryActive
-            ? '!text-black !bg-primary-light hover:bg-primary-light hover-text-black hover:cursor-pointer'
-            : '!text-common-bright !bg-black hover:bg-primary-light hover:cursor-pointer hover:text-black',
+            ? '!text-white !bg-primary hover:bg-primary hover:cursor-pointer'
+            : '!text-button !bg-secondary hover:bg-primary hover:cursor-pointer hover:text-white',
           // Todo: isActive right now is used for nested buttons where the primary
           // button needs to be fully rounded (vs partial rounded) when active
           // otherwise it does not have any other use

@@ -22,7 +22,7 @@ const toolbarButtons: Button[] = [
       evaluate: ({ button }) => {
         return {
           disabled: false,
-          className: '!text-common-bright hover:!bg-primary-dark hover:!text-primary-light rounded',
+          className: 'text-button hover:bg-primary hover:text-white rounded',
         };
       },
       commands: {

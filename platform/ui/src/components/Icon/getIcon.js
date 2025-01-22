@@ -35,6 +35,7 @@ import { ReactComponent as listBullets } from './../../assets/icons/list-bullets
 import { ReactComponent as lock } from './../../assets/icons/lock.svg';
 import { ReactComponent as logoOhifSmall } from './../../assets/icons/logo-ohif-small.svg';
 import { ReactComponent as logoDarkBackGround } from './../../assets/icons/ohif-logo-color-darkbg.svg';
+import { ReactComponent as logo } from './../../assets/icons/logo.svg';
 import { ReactComponent as magnifier } from './../../assets/icons/magnifier.svg';
 import { ReactComponent as notificationwarningDiamond } from './../../assets/icons/notificationwarning-diamond.svg';
 import { ReactComponent as pencil } from './../../assets/icons/pencil.svg';
@@ -250,6 +251,7 @@ const ICONS = {
   lock: lock,
   'logo-ohif-small': logoOhifSmall,
   'logo-dark-background': logoDarkBackGround,
+  logo: logo,
   magnifier: magnifier,
   exclamation: exclamation,
   'notificationwarning-diamond': notificationwarningDiamond,

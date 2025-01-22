@@ -164,9 +164,9 @@ function WorkList({
 
   // Set body style
   useEffect(() => {
-    document.body.classList.add('bg-black');
+    document.body.classList.add('bg-background');
     return () => {
-      document.body.classList.remove('bg-black');
+      document.body.classList.remove('bg-background');
     };
   }, []);
 
@@ -322,8 +322,7 @@ function WorkList({
               <Icon
                 name="group-layers"
                 className={classnames('mr-2 inline-flex w-4', {
-                  'text-primary-active': isExpanded,
-                  'text-secondary-light': !isExpanded,
+                  'text-primary': true,
                 })}
               />
               {instances}
@@ -420,13 +419,13 @@ function WorkList({
                       }
                       startIcon={
                         <Icon
-                          className="!h-[20px] !w-[20px] text-black"
+                          className="!h-[20px] !w-[20px] text-white"
                           name={isValidMode ? 'launch-arrow' : 'launch-info'}
                         />
                       } // launch-arrow | launch-info
                       onClick={() => {}}
                       dataCY={`mode-${mode.routeName}-${studyInstanceUid}`}
-                      className={isValidMode ? 'text-[13px]' : 'bg-[#222d44] text-[13px]'}
+                      className={'text-[13px]'}
                     >
                       {mode.displayName}
                     </Button>
@@ -448,17 +447,17 @@ function WorkList({
   const commitHash = process.env.COMMIT_HASH;
 
   const menuOptions = [
-    {
-      title: t('Header:About'),
-      icon: 'info',
-      onClick: () =>
-        show({
-          content: AboutModal,
-          title: t('AboutModal:About OHIF Viewer'),
-          contentProps: { versionNumber, commitHash },
-          containerDimensions: 'max-w-4xl max-h-4xl',
-        }),
-    },
+    // {
+    //   title: t('Header:About'),
+    //   icon: 'info',
+    //   onClick: () =>
+    //     show({
+    //       content: AboutModal,
+    //       title: t('AboutModal:About OHIF Viewer'),
+    //       contentProps: { versionNumber, commitHash },
+    //       containerDimensions: 'max-w-4xl max-h-4xl',
+    //     }),
+    // },
     {
       title: t('Header:Preferences'),
       icon: 'settings',
@@ -531,7 +530,7 @@ function WorkList({
     customizationService.get('ohif.dataSourceConfigurationComponent') ?? {};
 
   return (
-    <div className="flex h-screen flex-col bg-black">
+    <div className="bg-background flex h-screen flex-col">
       <Header
         isSticky
         menuOptions={menuOptions}
@@ -541,7 +540,7 @@ function WorkList({
       />
       <Onboarding />
       <InvestigationalUseDialog dialogConfiguration={appConfig?.investigationalUseDialog} />
-      <div className="flex flex-col h-full overflow-y-auto">
+      <div className="flex h-full flex-col overflow-y-auto">
         <ScrollArea>
           <div className="flex grow flex-col">
             <StudyListFilter
@@ -579,7 +578,7 @@ function WorkList({
           ) : (
             <div className="flex flex-col items-center justify-center pt-48">
               {appConfig.showLoadingIndicator && isLoadingData ? (
-                <LoadingIndicatorProgress className={'h-full w-full bg-black'} />
+                <LoadingIndicatorProgress className={'bg-background h-full w-full'} />
               ) : (
                 <EmptyStudies />
               )}

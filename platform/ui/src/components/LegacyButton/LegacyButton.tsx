@@ -27,9 +27,9 @@ const roundedClasses = {
 const variants = {
   text: {
     default:
-      'text-primary-light hover:bg-primary-light hover:text-white active:opacity-80 focus:bg-primary-light focus:text-white',
+      'text-primary hover:bg-primary-light hover:text-primary-foreground active:opacity-80 focus:bg-primary-light focus:text-white',
     primary:
-      'text-primary-main hover:bg-primary-main hover:text-white active:opacity-80 focus:bg-primary-main focus:text-white',
+      'text-primary hover:bg-primary-main hover:text-primary-foreground active:opacity-80 focus:bg-primary-main focus:text-white',
     secondary:
       'text-secondary-light hover:bg-secondary-light hover:text-white active:opacity-80 focus:bg-secondary-light focus:text-white',
     white:
@@ -47,7 +47,7 @@ const variants = {
       'text-black hover:bg-primary-main focus:bg-primary-main hover:border-black focus:border-black',
     black:
       'text-white hover:bg-primary-main focus:bg-primary-main hover:border-black focus:border-black',
-    primaryActive: 'text-primary-active hover:opacity-80 active:opacity-100 focus:opacity-80',
+    primaryActive: 'text-primary hover:opacity-80 active:opacity-100 focus:opacity-80',
     primaryLight:
       'border bg-transparent border-primary-main text-white hover:opacity-80 active:opacity-100 focus:opacity-80',
   },
@@ -117,8 +117,8 @@ const _getVariantClass = (variant, color, bgColor = null) => {
 const borderClasses = {
   none: '',
   light: 'border border-primary-light',
-  primary: 'border border-primary-main',
-  primaryActive: 'border border-primary-active',
+  primary: 'border border-input',
+  primaryActive: 'border border-primary',
   secondary: 'border border-secondary-light',
   white: 'border border-white',
   black: 'border border-black',

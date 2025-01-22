@@ -27,17 +27,19 @@ const StudyItem = ({
       collapsible
       onClick={onClick}
       onKeyDown={() => {}}
-      className="flex-shrink-0"
+      className="border-border flex-shrink-0 border-b"
       role="button"
       tabIndex={0}
       defaultValue={isActive ? 'study-item' : undefined}
     >
       <AccordionItem value="study-item">
-        <AccordionTrigger className={classnames('hover:bg-accent bg-popover rounded')}>
+        <AccordionTrigger
+          className={classnames('hover:bg-foreground bg-popover rounded text-gray-500')}
+        >
           <div className="flex h-[40px] flex-1 flex-row">
             <div className="flex w-full flex-row items-center justify-between">
               <div className="flex flex-col items-start text-[13px]">
-                <div className="text-white">{date}</div>
+                <div>{date}</div>
                 <div className="text-muted-foreground h-[18px] max-w-[160px] overflow-hidden truncate whitespace-nowrap">
                   {description}
                 </div>

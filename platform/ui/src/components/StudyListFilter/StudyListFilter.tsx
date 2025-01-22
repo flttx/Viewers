@@ -31,13 +31,13 @@ const StudyListFilter = ({
   return (
     <React.Fragment>
       <div>
-        <div className="bg-black">
+        <div className="bg-background">
           <div className="container relative mx-auto flex flex-col pt-5">
             <div className="mb-5 flex flex-row justify-between">
               <div className="flex min-w-[1px] shrink flex-row items-center gap-6">
                 <Typography
                   variant="h6"
-                  className="text-white"
+                  className="text-gray-800"
                 >
                   {t('StudyList')}
                 </Typography>
@@ -70,24 +70,24 @@ const StudyListFilter = ({
 
                 <Typography
                   variant="h6"
-                  className="mr-2"
+                  className="mr-2 text-gray-800"
                   data-cy={'num-studies'}
                 >
                   {numOfStudies > 100 ? '>100' : numOfStudies}
                 </Typography>
                 <Typography
                   variant="h6"
-                  className="text-primary-light"
+                  className="text-primary"
                 >
-                  {`${t('Studies')} `}
+                  {`${t('Studies')}`}
                 </Typography>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="sticky -top-1 z-10 mx-auto border-b-4 border-black">
-        <div className="bg-primary-dark pt-3 pb-3">
+      <div className="border-input sticky -top-1 z-10 mx-auto border-b-2">
+        <div className="bg-secondary pt-3 pb-3">
           <InputGroup
             inputMeta={filtersMeta}
             values={filterValues}
@@ -99,8 +99,8 @@ const StudyListFilter = ({
         </div>
         {numOfStudies > 100 && (
           <div className="container m-auto">
-            <div className="bg-primary-main rounded-b py-1 text-center text-base">
-              <p className="text-white">
+            <div className="bg-secondary rounded-b py-1 text-center text-base">
+              <p className="text-gray-800">
                 {t('Filter list to 100 studies or less to enable sorting')}
               </p>
             </div>

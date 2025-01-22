@@ -70,7 +70,7 @@ const Thumbnail = ({
       <div
         className={classnames(
           'flex h-full w-full flex-col items-center justify-center gap-[2px] p-[4px]',
-          isActive && 'bg-popover rounded'
+          isActive && 'bg-primary-disabled rounded'
         )}
       >
         <div className="h-[114px] w-[128px]">
@@ -202,7 +202,7 @@ const Thumbnail = ({
       <div
         className={classnames(
           'flex h-full w-full items-center justify-between pr-[8px] pl-[8px] pt-[4px] pb-[4px]',
-          isActive && 'bg-popover rounded'
+          isActive && 'bg-primary-disabled rounded'
         )}
       >
         <div className="relative flex h-[32px] items-center gap-[8px]">
@@ -315,7 +315,7 @@ const Thumbnail = ({
     <div
       className={classnames(
         className,
-        'bg-muted hover:bg-primary/30 group flex cursor-pointer select-none flex-col rounded outline-none',
+        'bg-button/30 hover:bg-primary/30 group flex cursor-pointer select-none flex-col rounded outline-none',
         viewPreset === 'thumbnails' && 'h-[170px] w-[135px]',
         viewPreset === 'list' && 'col-span-2 h-[40px] w-[275px]'
       )}

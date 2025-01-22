@@ -184,7 +184,7 @@ const DataRow: React.FC<DataRowProps> = ({
     <div className={`flex flex-col ${isVisible ? '' : 'opacity-60'}`}>
       <div
         className={`flex items-center ${
-          isSelected ? 'bg-popover' : 'bg-muted'
+          isSelected ? 'bg-primary' : 'bg-foreground'
         } group relative cursor-pointer`}
         onClick={onSelect}
         data-cy="data-row"
@@ -194,8 +194,8 @@ const DataRow: React.FC<DataRowProps> = ({
 
         {/* Number Box */}
         <div
-          className={`flex h-7 max-h-7 w-7 flex-shrink-0 items-center justify-center rounded-l border-r border-black text-base ${
-            isSelected ? 'bg-highlight text-black' : 'bg-muted text-muted-foreground'
+          className={`border-button flex h-7 max-h-7 w-7 flex-shrink-0 items-center justify-center rounded-l border-r text-base ${
+            isSelected ? 'bg-primary text-foreground' : 'bg-secondary text-button'
           } overflow-hidden`}
         >
           {number}
@@ -218,7 +218,7 @@ const DataRow: React.FC<DataRowProps> = ({
               <TooltipTrigger asChild>
                 <span
                   className={`cursor-default text-base ${
-                    isSelected ? 'text-highlight' : 'text-muted-foreground'
+                    isSelected ? 'text-foreground' : 'text-button'
                   } [overflow:hidden] [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical]`}
                 >
                   {title}
@@ -234,7 +234,7 @@ const DataRow: React.FC<DataRowProps> = ({
           ) : (
             <span
               className={`text-base ${
-                isSelected ? 'text-highlight' : 'text-muted-foreground'
+                isSelected ? 'text-white' : 'text-button'
               } [overflow:hidden] [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical]`}
             >
               {title}

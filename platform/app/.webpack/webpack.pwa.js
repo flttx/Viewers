@@ -63,6 +63,7 @@ module.exports = (env, argv) => {
       path: DIST_DIR,
       filename: isProdBuild ? '[name].bundle.[chunkhash].js' : '[name].js',
       publicPath: PUBLIC_URL, // Used by HtmlWebPackPlugin for asset prefix
+      clean: true,
       devtoolModuleFilenameTemplate: function (info) {
         if (isProdBuild) {
           return `webpack:///${info.resourcePath}`;
@@ -114,7 +115,7 @@ module.exports = (env, argv) => {
           // Copy Dicom Microscopy Viewer build files
           {
             from: '../../../node_modules/dicom-microscopy-viewer/dist/dynamic-import',
-            to: DIST_DIR,
+            to: `${DIST_DIR}`,
             globOptions: {
               ignore: ['**/*.min.js.map'],
             },
@@ -125,13 +126,32 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: `${PUBLIC_DIR}/html-templates/${HTML_TEMPLATE}`,
         filename: 'index.html',
+        publicPath: PUBLIC_URL,
         templateParameters: {
           PUBLIC_URL: PUBLIC_URL,
+          // 添加环境区分
+          isDevelopment: !isProdBuild,
         },
+        inject: true,
+        // 生产环境移除websocket相关代码
+        minify: isProdBuild
+          ? {
+              removeComments: true,
+              collapseWhitespace: true,
+              removeRedundantAttributes: true,
+              useShortDoctype: true,
+              removeEmptyAttributes: true,
+              removeStyleLinkTypeAttributes: true,
+              keepClosingSlash: true,
+              minifyJS: true,
+              minifyCSS: true,
+              minifyURLs: true,
+            }
+          : false,
       }),
       // Generate a service worker for fast local loads
       new InjectManifest({
-        swDest: 'sw.js',
+        swDest: `${DIST_DIR}/sw.js`,
         swSrc: path.join(SRC_DIR, 'service-worker.js'),
         // Need to exclude the theme as it is updated independently
         exclude: [/theme/],
@@ -140,42 +160,41 @@ module.exports = (env, argv) => {
       }),
     ],
     // https://webpack.js.org/configuration/dev-server/
-    devServer: {
-      // gzip compression of everything served
-      // Causes Cypress: `wait-on` issue in CI
-      // compress: true,
-      // http2: true,
-      // https: true,
-      open: true,
-      port: OHIF_PORT,
-      client: {
-        overlay: { errors: true, warnings: false },
-      },
-      proxy: {
-        '/dicomweb': 'http://localhost:5000',
-      },
-      static: [
-        {
-          directory: '../../testdata',
-          staticOptions: {
-            extensions: ['gz', 'br', 'mht'],
-            index: ['index.json.gz', 'index.mht.gz'],
-            redirect: true,
-            setHeaders,
-          },
-          publicPath: '/viewer-testdata',
+
+    // devServer配置只在开发模式使用
+    ...(!isProdBuild && {
+      devServer: {
+        open: true,
+        port: OHIF_PORT,
+        client: {
+          overlay: { errors: true, warnings: false },
         },
-      ],
-      //public: 'http://localhost:' + 3000,
-      //writeToDisk: true,
-      historyApiFallback: {
-        disableDotRule: true,
-        index: PUBLIC_URL + 'index.html',
+        proxy: {
+          '/dicomweb': 'http://localhost:5000',
+        },
+        static: [
+          {
+            directory: '../../testdata',
+            staticOptions: {
+              extensions: ['gz', 'br', 'mht'],
+              index: ['index.json.gz', 'index.mht.gz'],
+              redirect: true,
+              setHeaders,
+            },
+            publicPath: '/viewer-testdata',
+          },
+        ],
+        //public: 'http://localhost:' + 3000,
+        //writeToDisk: true,
+        historyApiFallback: {
+          disableDotRule: true,
+          index: PUBLIC_URL + 'index.html',
+        },
+        devMiddleware: {
+          writeToDisk: true,
+        },
       },
-      devMiddleware: {
-        writeToDisk: true,
-      },
-    },
+    }),
   });
 
   if (hasProxy) {

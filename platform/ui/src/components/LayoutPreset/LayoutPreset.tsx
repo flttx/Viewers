@@ -21,9 +21,11 @@ function LayoutPreset({
     >
       <Icon
         name={icon}
-        className="group-hover:text-primary-light"
+        className=""
       />
-      {title && <div className="font-inter text-sm text-white">{title}</div>}
+      {title && (
+        <div className="font-inter text-button text-sm group-hover:text-white">{title}</div>
+      )}
     </div>
   );
 }

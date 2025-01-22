@@ -31,7 +31,7 @@ const Option = props => {
         </div>
         <label
           id={props.data.value}
-          className="ml-3 mt-1"
+          className="ml-3 mt-1 text-gray-700"
         >
           <span>{props.value}</span>
         </label>
@@ -43,7 +43,7 @@ const Option = props => {
 const Select = ({
   id,
   className = '',
-  closeMenuOnSelect = true,
+  closeMenuOnSelect = false,
   hideSelectedOptions = false,
   isClearable = true,
   isDisabled = false,

@@ -71,11 +71,11 @@ const StudyBrowser = ({
 
   return (
     <div
-      className="ohif-scrollbar invisible-scrollbar bg-bkg-low flex flex-1 flex-col gap-[4px] overflow-auto pt-px"
+      className="ohif-scrollbar invisible-scrollbar bg-secondary flex flex-1 flex-col gap-[4px] overflow-auto pt-px"
       data-cy={'studyBrowser-panel'}
     >
       {showSettings && (
-        <div className="w-100 bg-bkg-low flex h-[48px] items-center justify-center gap-[10px] px-[8px] py-[10px]">
+        <div className="w-100 bg-secondary flex h-[48px] items-center justify-center gap-[10px] px-[8px] py-[10px]">
           <>
             <StudyBrowserViewOptions
               tabs={tabs}

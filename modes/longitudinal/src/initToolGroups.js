@@ -110,7 +110,7 @@ function initDefaultToolGroup(
       },
     ],
   };
-
+  console.log('toolGroupId:', toolGroupId, ',tools:', tools);
   toolGroupService.createToolGroupAndAddTools(toolGroupId, tools);
 }
 

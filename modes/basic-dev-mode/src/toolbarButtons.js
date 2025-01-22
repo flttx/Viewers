@@ -36,6 +36,27 @@ function _createSetToolActiveCommands(toolName, toolGroupIds = ['default', 'mpr'
 
 const toolbarButtons: Button[] = [
   {
+    id: 'Import',
+    uiType: 'ohif.radioGroup',
+    props: {
+      icon: 'tool-import',
+      label: 'Import',
+      evaluate: ({ button }) => {
+        return {
+          disabled: false,
+          className: 'text-button hover:bg-primary hover:text-white rounded',
+        };
+      },
+      commands: {
+        commandName: 'navigateHistory',
+        commandOptions: {
+          to: '/local',
+        },
+        context: 'DEFAULT',
+      },
+    },
+  },
+  {
     id: 'MeasurementTools',
     uiType: 'ohif.splitButton',
     props: {

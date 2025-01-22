@@ -33,10 +33,10 @@ const Modal = ({
 
   const renderHeader = () =>
     title && (
-      <header className="bg-primary-dark drag-handle flex items-center rounded-tl rounded-tr px-[20px] py-[13px]">
+      <header className="bg-secondary drag-handle flex items-center rounded-tl rounded-tr px-[20px] py-[13px]">
         <Typography
           variant="h6"
-          color="primaryLight"
+          color="black"
           className="flex grow !leading-[1.2]"
           data-cy="modal-header"
         >
@@ -46,7 +46,7 @@ const Modal = ({
           <Icon
             onClick={onClose}
             name="close"
-            className="text-primary-active cursor-pointer"
+            className="cursor-pointer text-gray-600"
           />
         )}
       </header>
@@ -58,8 +58,8 @@ const Modal = ({
       <section
         className={
           contentDimensions
-            ? `ohif-scrollbar bg-primary-dark overflow-y-auto ${contentDimensions}`
-            : 'ohif-scrollbar modal-content bg-primary-dark overflow-y-auto rounded-bl rounded-br px-[20px] pt-2 pb-[20px]'
+            ? `ohif-scrollbar bg-secondary overflow-y-auto ${contentDimensions}`
+            : 'ohif-scrollbar modal-content bg-secondary overflow-y-auto rounded-bl rounded-br px-[20px] pt-2 pb-[20px]'
         }
       >
         {children}
@@ -71,8 +71,8 @@ const Modal = ({
     <ReactModal
       className={
         containerDimensions
-          ? `relative text-white outline-none ${containerDimensions}`
-          : 'relative max-h-full w-11/12 text-white outline-none lg:w-10/12 xl:w-9/12'
+          ? `relative text-gray-800 outline-none ${containerDimensions}`
+          : 'relative max-h-full w-11/12 text-gray-800 outline-none lg:w-10/12 xl:w-9/12'
       }
       overlayClassName={
         movable
@@ -88,7 +88,7 @@ const Modal = ({
       {movable ? (
         <Draggable
           handle=".drag-handle"
-          defaultClassName="bg-primary-dark pointer-events-auto"
+          defaultClassName="bg-secondary pointer-events-auto"
         >
           <div>{modalContent}</div>
         </Draggable>

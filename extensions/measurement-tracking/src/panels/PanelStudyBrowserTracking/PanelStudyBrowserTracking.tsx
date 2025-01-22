@@ -500,8 +500,8 @@ export default function PanelStudyBrowserTracking({
         />
         <Separator
           orientation="horizontal"
-          className="bg-black"
-          thickness="2px"
+          className="bg-border"
+          thickness="1px"
         />
       </>
 

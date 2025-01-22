@@ -42,7 +42,7 @@ function PatientInfo({
               <div className="flex pt-1">
                 <Icon
                   name="info-link"
-                  className="text-primary-main w-4"
+                  className="text-primary w-4"
                 />
               </div>
               <div className="ml-2 flex flex-col">
@@ -116,7 +116,7 @@ function PatientInfo({
         }
       >
         <Icon
-          className="hover:text-primary-light cursor-pointer text-white"
+          className="hover:text-primary cursor-pointer text-white"
           name="info-action"
         />
       </Tooltip>

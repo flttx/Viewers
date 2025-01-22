@@ -45,11 +45,12 @@ const classes = {
   color: {
     initial: 'text-white',
     inherit: 'text-inherit',
-    primary: 'text-primary-main',
+    primary: 'text-primary',
     primaryActive: 'text-primary-active',
     primaryLight: 'text-primary-light',
     secondary: 'text-common-light',
     error: 'text-red-600',
+    black: 'text-gray-800',
   },
   align: {
     inherit: '',
@@ -135,6 +136,7 @@ Typography.propTypes = {
     'secondary',
     'error',
     'primaryLight',
+    'black',
   ]),
   className: PropTypes.string,
   children: PropTypes.node,

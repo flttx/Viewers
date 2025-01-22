@@ -65,8 +65,11 @@ function Header({
             onClick={onClickReturn}
             data-cy="return-to-work-list"
           >
-            {isReturnEnabled && <Icons.ChevronPatient className="text-primary-active w-8" />}
-            <div className="ml-1">
+            {isReturnEnabled && <Icons.ChevronPatient className="text-primary w-8" />}
+            <div
+              className="ml-1"
+              style={{ width: '128px', height: '28px' }}
+            >
               {WhiteLabeling?.createLogoComponentFn?.(React, props) || <Icons.OHIFLogo />}
             </div>
           </div>
@@ -77,14 +80,14 @@ function Header({
         </div>
         <div className="absolute right-0 top-1/2 flex -translate-y-1/2 select-none items-center">
           {PatientInfo}
-          <div className="border-primary-dark mx-1.5 h-[25px] border-r"></div>
+          <div className="border-gray mx-1.5 h-[25px] border-r"></div>
           <div className="flex-shrink-0">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-primary-active hover:bg-primary-dark mt-2 h-full w-full"
+                  className="text-primary hover:bg-primary mt-2 h-full w-full hover:text-white"
                 >
                   <Icons.GearSettings />
                 </Button>

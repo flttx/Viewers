@@ -27,6 +27,11 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: C
 
         caption_dropdowns: 'flex space-x-2 text-black',
         caption_label: 'hidden',
+        dropdown: cn(
+          'rdp-dropdown', // 保留原始类名
+          'border border-input',
+          'focus:outline-none focus:ring-2 focus:ring-primary'
+        ),
         nav: 'space-x-1 flex items-center',
         table: 'w-full border-collapse space-y-1',
         head_row: 'flex',

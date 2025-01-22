@@ -213,7 +213,6 @@ class CornerstoneCacheService {
       try {
         const volumeLoaderSchema = displaySet.volumeLoaderSchema ?? VOLUME_LOADER_SCHEME;
         const volumeId = `${volumeLoaderSchema}:${displaySet.displaySetInstanceUID}`;
-        console.log('volumeId:', volumeId, ',stackImageIds:', stackImageIds);
         const volume = await volumeLoader.createAndCacheVolume(volumeId, {
           imageIds: stackImageIds,
         });

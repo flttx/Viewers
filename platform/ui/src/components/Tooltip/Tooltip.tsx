@@ -10,7 +10,7 @@ import './tooltip.css';
 
 const arrowPositionStyle = {
   bottom: {
-    top: -15,
+    top: -14,
     left: '50%',
     transform: 'translateX(-50%)',
   },
@@ -147,7 +147,7 @@ const Tooltip = ({
       <div
         ref={tooltipRef}
         className={classnames(
-          'tooltip-box bg-primary-dark border-secondary-light w-max-content relative inset-x-auto top-full rounded border text-base text-white',
+          'tooltip-box bg-secondary border-border w-max-content relative inset-x-auto top-full rounded border text-base text-gray-700',
           {
             'py-[6px] px-[8px]': !tight,
           },
@@ -155,11 +155,11 @@ const Tooltip = ({
         )}
       >
         <div>{typeof content === 'string' ? t(content) : content}</div>
-        <div className="text-aqua-pale">
+        <div className="text-gray-700">
           {typeof secondaryContent === 'string' ? t(secondaryContent) : secondaryContent}
         </div>
         <svg
-          className="text-primary-dark stroke-secondary-light absolute h-4"
+          className="text-secondary stroke-border absolute z-10 h-4"
           style={arrowPositionStyle[position]}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"

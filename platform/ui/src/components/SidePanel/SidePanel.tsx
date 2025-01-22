@@ -115,7 +115,7 @@ const getTabStyle = (numTabs: number) => {
 
 const getTabIconClassNames = (numTabs: number, isActiveTab: boolean) => {
   return classnames('h-full w-full flex items-center justify-center', {
-    'bg-customblue-40': isActiveTab,
+    'bg-primary text-white': isActiveTab,
     rounded: isActiveTab,
   });
 };
@@ -216,7 +216,7 @@ const SidePanel = ({
       <>
         <div
           className={classnames(
-            'bg-secondary-dark flex h-[28px] w-full cursor-pointer items-center rounded-md',
+            'bg-secondary flex h-[28px] w-full cursor-pointer items-center rounded-md',
             side === 'left' ? 'justify-end pr-2' : 'justify-start pl-2'
           )}
           onClick={() => {
@@ -226,7 +226,7 @@ const SidePanel = ({
         >
           <Icon
             name={'navigation-panel-right-reveal'}
-            className={classnames('text-primary-active', side === 'left' && 'rotate-180 transform')}
+            className={classnames('text-primary', side === 'left' && 'rotate-180 transform')}
           />
         </div>
         <div className={classnames('mt-3 flex flex-col space-y-3')}>
@@ -243,7 +243,7 @@ const SidePanel = ({
               <div
                 id={`${childComponent.name}-btn`}
                 data-cy={`${childComponent.name}-btn`}
-                className="text-primary-active hover:cursor-pointer"
+                className="text-primary hover:cursor-pointer"
                 onClick={() => {
                   return childComponent.disabled ? null : updateActiveTabIndex(index);
                 }}
@@ -251,7 +251,7 @@ const SidePanel = ({
                 <Icon
                   name={childComponent.iconName}
                   className={classnames({
-                    'text-primary-active': true,
+                    'text-primary': true,
                     'ohif-disabled': childComponent.disabled,
                   })}
                   style={{

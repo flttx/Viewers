@@ -9,6 +9,8 @@ export function Toolbar({ servicesManager, buttonSection = 'primary' }) {
     buttonSection,
   });
 
+  console.log('toolbarButtons:', toolbarButtons);
+
   if (!toolbarButtons.length) {
     return null;
   }

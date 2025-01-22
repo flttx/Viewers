@@ -1,4 +1,8 @@
 {
   "Load files": "加载文件",
-  "Load folders": "加载文件夹"
+  "Load folders": "加载文件夹",
+  "Note": "注意",
+  "You data is not uploaded to any server": "您的数据未上传至任何服务器，它将保留在您的本地浏览器应用程序中。",
+  "Drag and Drop DICOM files here to load them in the Viewer": "将DICOM文件拖放到此处加载",
+  "Or click to": "或点击"
 }
