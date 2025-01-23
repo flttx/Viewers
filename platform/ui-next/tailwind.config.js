@@ -43,6 +43,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        overlay: 'rgba(0, 0, 0, 0.8)',
         highlight: 'hsl(var(--highlight))',
         border: 'hsl(var(--border))',
         input: {

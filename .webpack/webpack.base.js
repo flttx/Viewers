@@ -63,7 +63,7 @@ module.exports = (env, argv, { SRC_DIR, ENTRY }) => {
 
   const config = {
     mode: isProdBuild ? 'production' : 'development',
-    devtool: isProdBuild ? 'source-map' : 'cheap-module-source-map',
+    devtool: isProdBuild ? false : 'cheap-module-source-map',
     entry: ENTRY,
     optimization: {
       // splitChunks: {

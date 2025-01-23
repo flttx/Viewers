@@ -70,7 +70,7 @@ const Thumbnail = ({
       <div
         className={classnames(
           'flex h-full w-full flex-col items-center justify-center gap-[2px] p-[4px]',
-          isActive && 'bg-primary-disabled rounded'
+          isActive && 'bg-primary/10 rounded'
         )}
       >
         <div className="h-[114px] w-[128px]">
@@ -90,12 +90,19 @@ const Thumbnail = ({
             <div className="absolute bottom-0 left-0 flex h-[14px] items-center gap-[4px] rounded-tr pt-[10px] pb-[8px] pr-[6px] pl-[3px]">
               <div
                 className={classnames(
-                  'h-[10px] w-[10px] rounded-[2px]',
-                  isActive || isHydratedForDerivedDisplaySet ? 'bg-highlight' : 'bg-primary/65',
+                  'group-hover:bg-primary h-[10px] w-[10px] rounded-[2px]',
+                  isActive || isHydratedForDerivedDisplaySet ? 'bg-primary' : 'bg-[#5BB2FF]',
                   loadingProgress && loadingProgress < 1 && 'bg-primary/25'
                 )}
               ></div>
-              <div className="text-[11px] font-semibold text-white">{modality}</div>
+              <div
+                className={classnames(
+                  'group-hover:text-primary text-[11px] font-semibold text-[#5BB2FF]',
+                  isActive && '!text-primary'
+                )}
+              >
+                {modality}
+              </div>
             </div>
 
             {/* top right */}
@@ -176,7 +183,12 @@ const Thumbnail = ({
           </div>
         </div>
         <div className="mt-3 flex h-[52px] w-[128px] flex-col">
-          <div className="min-h-[18px] w-[128px] overflow-hidden text-ellipsis pb-0.5 pl-1 text-[12px] font-normal leading-4 text-white">
+          <div
+            className={classnames(
+              'text-overlay group-hover:text-primary min-h-[18px] w-[128px] overflow-hidden text-ellipsis pb-0.5 pl-1 text-[12px] font-normal leading-4',
+              isActive && '!text-primary'
+            )}
+          >
             {description}
           </div>
           <div className="flex h-[12px] items-center gap-[7px] overflow-hidden">
@@ -202,22 +214,34 @@ const Thumbnail = ({
       <div
         className={classnames(
           'flex h-full w-full items-center justify-between pr-[8px] pl-[8px] pt-[4px] pb-[4px]',
-          isActive && 'bg-primary-disabled rounded'
+          isActive && 'bg-primary/10 rounded'
         )}
       >
         <div className="relative flex h-[32px] items-center gap-[8px]">
           <div
             className={classnames(
-              'h-[32px] w-[4px] rounded-[2px]',
-              isActive || isHydratedForDerivedDisplaySet ? 'bg-highlight' : 'bg-primary/65',
+              'group-hover:bg-primary h-[32px] w-[4px] rounded-[2px]',
+              isActive || isHydratedForDerivedDisplaySet ? 'bg-primary' : 'bg-[#5BB2FF]',
               loadingProgress && loadingProgress < 1 && 'bg-primary/25'
             )}
           ></div>
           <div className="flex h-full flex-col">
             <div className="flex items-center gap-[7px]">
-              <div className="text-[13px] font-semibold text-white">{modality}</div>
+              <div
+                className={classnames(
+                  'group-hover:text-primary text-[13px] font-semibold text-[#5BB2FF]',
+                  isActive && '!text-primary'
+                )}
+              >
+                {modality}
+              </div>
 
-              <div className="max-w-[160px] overflow-hidden overflow-ellipsis whitespace-nowrap text-[13px] font-normal text-white">
+              <div
+                className={classnames(
+                  'text-overlay group-hover:text-primary max-w-[160px] overflow-hidden overflow-ellipsis whitespace-nowrap text-[13px] font-normal',
+                  isActive && '!text-primary'
+                )}
+              >
                 {description}
               </div>
             </div>
@@ -315,7 +339,7 @@ const Thumbnail = ({
     <div
       className={classnames(
         className,
-        'bg-button/30 hover:bg-primary/30 group flex cursor-pointer select-none flex-col rounded outline-none',
+        'bg-card-foreground hover:bg-primary/10 group flex cursor-pointer select-none flex-col rounded outline-none',
         viewPreset === 'thumbnails' && 'h-[170px] w-[135px]',
         viewPreset === 'list' && 'col-span-2 h-[40px] w-[275px]'
       )}

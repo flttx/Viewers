@@ -29,7 +29,7 @@ const classes = {
         ? isExpanded
           ? 'border-primary !bg-primary hover:border-primary !text-white'
           : 'border-primary rounded-md'
-        : `focus:!text-white focus:!rounded-md focus:!border-primary focus:!bg-primary ${isExpanded ? 'border-primary bg-primary !text-white' : 'border-input bg-secondary group-hover/button:border-primary group-hover/button:text-button hover:!bg-primary hover:border-primary focus:!text-white focus:bg-primary'}`
+        : `focus:!text-white focus:!rounded-md focus:!border-primary focus:!bg-primary ${isExpanded ? 'border-primary bg-primary !text-white' : 'border-input bg-secondary group-hover/button:border-primary group-hover/button:bg-primary group-hover/button:text-white hover:!bg-primary hover:border-primary focus:!text-white focus:bg-primary'}`
     ),
   Secondary: ({ isExpanded, primary }) =>
     classNames(

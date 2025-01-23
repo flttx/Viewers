@@ -10,6 +10,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 // ~~ Directories
 const SRC_DIR = path.join(__dirname, '../src');
 const DIST_DIR = path.join(__dirname, '../dist');
@@ -158,6 +159,16 @@ module.exports = (env, argv) => {
         // Cache large files for the manifests to avoid warning messages
         maximumFileSizeToCacheInBytes: 1024 * 1024 * 50,
       }),
+      ...(isProdBuild
+        ? [
+            new CompressionPlugin({
+              test: /\.(js|css)$/,
+              algorithm: 'gzip',
+              threshold: 10240,
+              minRatio: 0.8,
+            }),
+          ]
+        : []),
     ],
     // https://webpack.js.org/configuration/dev-server/
 

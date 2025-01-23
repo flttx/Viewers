@@ -64,11 +64,12 @@ const Header = ({ children }: { children: React.ReactNode }) => {
 
 const Body = () => {
   const { data } = useMeasurementTableContext('MeasurementTable.Body');
+  const { t } = useTranslation('MeasurementTable');
 
   if (!data || data.length === 0) {
     return (
-      <div className="text-primary-light mb-1 flex flex-1 items-center px-2 py-2 text-base">
-        No tracked measurements
+      <div className="mb-1 flex flex-1 items-center px-2 py-2 text-base text-gray-400">
+        {t('No tracked measurements')}
       </div>
     );
   }
