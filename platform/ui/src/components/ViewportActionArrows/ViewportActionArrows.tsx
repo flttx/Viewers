@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Icons } from '@ohif/ui-next';
 
 const arrowClasses =
-  'cursor-pointer flex items-center justify-center shrink-0 text-primary-light active:text-white hover:bg-secondary-light/60 rounded';
+  'cursor-pointer flex items-center justify-center shrink-0 text-primary active:text-white hover:bg-secondary-light/60 rounded';
 
 type ViewportActionArrowsProps = {
   onArrowsClick: (direction: number) => void;

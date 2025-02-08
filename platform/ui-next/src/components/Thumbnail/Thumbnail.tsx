@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import { useDrag } from 'react-dnd';
+import i18n from 'i18next';
 import { Icons } from '../Icons';
 import { DisplaySetMessageListTooltip } from '../DisplaySetMessageListTooltip';
 import { TooltipTrigger, TooltipContent, Tooltip } from '../Tooltip';
@@ -164,7 +165,7 @@ const Thumbnail = ({
                     className="gap-[6px]"
                   >
                     <Icons.DicomTagBrowser />
-                    Tag Browser
+                    {i18n.t('Buttons:Tag Browser').toString()}
                   </DropdownMenuItem>
                   {canReject && (
                     <DropdownMenuItem

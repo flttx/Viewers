@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { utils } from '@ohif/core';
 import { Icons } from '@ohif/ui-next';
+import i18n from 'i18next';
 import { PatientInfoVisibility } from '../../types';
 
 const { formatDate, formatPN } = utils;
@@ -89,6 +90,8 @@ function HeaderPatientInfo({ servicesManager, appConfig }: withAppTypes) {
     }
   };
 
+  console.log('patientInfo:', patientInfo);
+
   const formattedPatientName = formatWithEllipsis(patientInfo.PatientName, 27);
   const formattedPatientID = formatWithEllipsis(patientInfo.PatientID, 15);
 
@@ -99,7 +102,7 @@ function HeaderPatientInfo({ servicesManager, appConfig }: withAppTypes) {
     >
       <Icons.ByName
         name={isMixedPatients ? 'icon-multiple-patients' : 'icon-patient'}
-        className="text-primary-active"
+        className="text-primary"
       />
       <div className="flex flex-col justify-center">
         {expanded ? (
@@ -114,13 +117,13 @@ function HeaderPatientInfo({ servicesManager, appConfig }: withAppTypes) {
             </div>
           </>
         ) : (
-          <div className="text-primary-active self-center text-[13px]">
+          <div className="text-primary self-center text-[13px]">
             {' '}
-            {isMixedPatients ? 'Multiple Patients' : 'Patient'}
+            {isMixedPatients ? 'Multiple Patients' : i18n.t('StudyList:Patient').toString()}
           </div>
         )}
       </div>
-      <Icons.ArrowLeft className={`text-primary-active ${expanded ? 'rotate-180' : ''}`} />
+      <Icons.ArrowLeft className={`text-primary ${expanded ? 'rotate-180' : ''}`} />
     </div>
   );
 }

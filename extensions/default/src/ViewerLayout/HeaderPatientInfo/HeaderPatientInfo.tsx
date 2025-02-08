@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import usePatientInfo from '../../hooks/usePatientInfo';
 import { Icons } from '@ohif/ui-next';
+import i18n from 'i18next';
 
 export enum PatientInfoVisibility {
   VISIBLE = 'visible',
@@ -62,7 +63,7 @@ function HeaderPatientInfo({ servicesManager, appConfig }: withAppTypes) {
           </>
         ) : (
           <div className="text-primary self-center text-[13px]">
-            {isMixedPatients ? 'Multiple Patients' : 'Patient'}
+            {isMixedPatients ? 'Multiple Patients' : i18n.t('StudyList:Patient').toString()}
           </div>
         )}
       </div>

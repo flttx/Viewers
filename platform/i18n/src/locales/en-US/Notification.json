@@ -50,5 +50,19 @@
   "You can change the layout of the viewer using the layout button.": "You can change the layout of the viewer using the layout button.",
   "Selecting the MPR Layout": "Selecting the MPR Layout",
   "Select the MPR layout to view the images in MPR mode.": "Select the MPR layout to view the images in MPR mode.",
-  "Skip all": "Skip all"
+  "Skip all": "Skip all",
+  "DICOM Tag Browser": "DICOM Tag Browser",
+  "Series": "Series",
+  "Select Series": "Select Series",
+  "Instance Number": "Instance Number",
+  "Search metadata": "Search metadata",
+  "Tag": "Tag",
+  "Keyword": "Keyword",
+  "Value": "Value",
+  "Common": "Common",
+  "Advanced": "Advanced",
+  "Custom": "Custom",
+  "Hover to select": "Hover to select",
+  "rows and columns": "rows and columns",
+  "Click to apply": "Click to apply"
 }

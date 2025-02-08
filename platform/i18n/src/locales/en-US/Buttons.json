@@ -55,5 +55,15 @@
   "Delete": "Delete",
   "Lock": "Lock",
   "Unlock": "Unlock",
-  "Change Color": "Change Color"
+  "Change Color": "Change Color",
+  "Tag Browser": "Tag Browser",
+  "Image Slice Sync": "Image Slice Sync",
+  "Zoom-in": "Zoom-in",
+  "Cobb Angle": "Cobb Angle",
+  "Image Overlay": "Image Overlay",
+  "Calibration": "Calibration",
+  "Dicom Tag Browser": "Dicom Tag Browser",
+  "Magnify Probe": "Magnify Probe",
+  "Ultrasound Directional": "Ultrasound Directional",
+  "Window Level Region": "Window Level Region"
 }

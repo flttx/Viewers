@@ -41,10 +41,10 @@ function ViewerLayout({
    * is sized to our viewport.
    */
   useEffect(() => {
-    document.body.classList.add('bg-black');
+    document.body.classList.add('bg-secondary');
     document.body.classList.add('overflow-hidden');
     return () => {
-      document.body.classList.remove('bg-black');
+      document.body.classList.remove('bg-secondary');
       document.body.classList.remove('overflow-hidden');
     };
   }, []);

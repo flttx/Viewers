@@ -1,7 +1,7 @@
 import { Enums } from '@cornerstonejs/tools';
 
 const getToggledClassName = (isToggled: boolean) => {
-  return isToggled ? 'text-white' : 'text-button hover:!bg-primary hover:text-white';
+  return isToggled ? '!text-primary' : 'text-button hover:!bg-primary hover:text-white';
 };
 
 const getDisabledState = (disabledText?: string) => ({

@@ -119,7 +119,7 @@ function ViewportOrientationMarkers({
         className={classNames(
           'overlay-text',
           `${m}-mid orientation-marker`,
-          'text-aqua-pale',
+          'text-primary',
           'text-[13px]',
           'leading-5'
         )}

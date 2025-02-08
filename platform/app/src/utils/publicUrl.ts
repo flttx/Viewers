@@ -1,4 +1,4 @@
-const publicUrl = (window as any).PUBLIC_URL || '/';
+const publicUrl = '/';
 
 export default publicUrl;
 export { publicUrl };

@@ -28,13 +28,13 @@ const ViewportOverlay = ({
   topRight,
   bottomRight,
   bottomLeft,
-  color = 'text-primary-light',
+  color = 'text-primary',
 }: ViewportOverlayProps) => {
   const overlay = 'absolute pointer-events-none viewport-overlay';
   return (
     <div
       className={classnames(
-        color ? color : 'text-aqua-pale',
+        color ? color : 'text-primary',
         'text-[13px]',
         'leading-5',
         'overlay-text'

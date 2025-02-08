@@ -20,7 +20,7 @@ export const Cancel = (props: IconProps) => (
         fill="currentColor"
       />
       <g
-        stroke="#000"
+        stroke="#FFF"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth="1.5"

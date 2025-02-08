@@ -6,6 +6,7 @@
  * @returns {*}
  */
 export default function getName(element, defaultValue) {
+  console.log('element:', element, ',defaultValue:', defaultValue);
   if (!element) {
     return defaultValue;
   }

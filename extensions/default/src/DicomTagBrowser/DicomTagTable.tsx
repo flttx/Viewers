@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { VariableSizeList as List } from 'react-window';
 import classNames from 'classnames';
 import debounce from 'lodash.debounce';
+import i18n from 'i18next';
+import i18next from 'i18next';
 
 const lineHeightPx = 20;
 const lineHeightClassName = `leading-[${lineHeightPx}px]`;
@@ -24,7 +26,9 @@ function ColumnHeaders({ tagRef, vrRef, keywordRef, valueRef }) {
           ref={tagRef}
           className="flex flex-1 select-none flex-col pl-1 text-lg text-gray-800"
         >
-          <span className="flex flex-row items-center focus:outline-none">Tag</span>
+          <span className="flex flex-row items-center focus:outline-none">
+            {i18n.t('Notification:Tag').toString()}
+          </span>
         </label>
       </div>
       <div className="w-2/24 px-3">
@@ -40,7 +44,10 @@ function ColumnHeaders({ tagRef, vrRef, keywordRef, valueRef }) {
           ref={keywordRef}
           className="flex flex-1 select-none flex-col pl-1 text-lg text-gray-800"
         >
-          <span className="flex flex-row items-center focus:outline-none">Keyword</span>
+          <span className="flex flex-row items-center focus:outline-none">
+            {' '}
+            {i18n.t('Notification:Keyword').toString()}
+          </span>
         </label>
       </div>
       <div className="w-5/24 grow px-3">
@@ -48,7 +55,10 @@ function ColumnHeaders({ tagRef, vrRef, keywordRef, valueRef }) {
           ref={valueRef}
           className="flex flex-1 select-none flex-col pl-1 text-lg text-gray-800"
         >
-          <span className="flex flex-row items-center focus:outline-none">Value</span>
+          <span className="flex flex-row items-center focus:outline-none">
+            {' '}
+            {i18n.t('Notification:Value').toString()}
+          </span>
         </label>
       </div>
     </div>

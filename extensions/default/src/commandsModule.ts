@@ -1,5 +1,5 @@
 import { Types } from '@ohif/core';
-
+import i18n from 'i18next';
 import { ContextMenuController, defaultContextMenu } from './CustomizableContextMenu';
 import DicomTagBrowser from './DicomTagBrowser/DicomTagBrowser';
 import reuseCachedLayouts from './utils/reuseCachedLayouts';
@@ -449,7 +449,7 @@ const commandsModule = ({
           onClose: UIModalService.hide,
         },
         containerDimensions: 'w-[70%] max-w-[900px]',
-        title: 'DICOM Tag Browser',
+        title: i18n.t('Notification:DICOM Tag Browser'),
       });
     },
 

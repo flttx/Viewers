@@ -20,7 +20,7 @@ const baseClasses = {
 
 const classes = {
   Button: ({ isExpanded }) =>
-    classNames(baseClasses.Button, !isExpanded && 'hover:!bg-primary hover:border-primary'),
+    classNames(baseClasses.Button, !isExpanded && 'hover:!bg-primary/60 hover:border-primary'),
   Interface: 'h-full flex flex-row items-center',
   Primary: ({ isExpanded, isActive }) =>
     classNames(
@@ -60,7 +60,7 @@ const DefaultListItemRenderer = props => {
   return (
     <div
       className={classNames(
-        'flex h-8 w-full select-none flex-row items-center p-3',
+        'text-button flex h-8 w-full select-none flex-row items-center p-3 hover:!text-white',
         'whitespace-pre text-base',
         className,
         `${isActive ? 'hover:opacity-80' : 'hover:bg-primary'}`

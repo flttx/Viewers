@@ -49,7 +49,6 @@ class DicomMicroscopyViewport extends Component {
     resizeRef: PropTypes.oneOfType([PropTypes.func, PropTypes.shape({ current: PropTypes.any })]),
   };
 
-
   /**
    * Get the nearest ROI from the mouse click point
    *
@@ -304,7 +303,7 @@ class DicomMicroscopyViewport extends Component {
           />
         )}
         {this.state.isLoaded ? null : (
-          <LoadingIndicatorProgress className={'h-full w-full bg-black'} />
+          <LoadingIndicatorProgress className={'h-full w-full bg-white'} />
         )}
       </div>
     );

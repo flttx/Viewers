@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { LayoutSelector as OHIFLayoutSelector, ToolbarButton, LayoutPreset } from '@ohif/ui';
+import i18n from 'i18next';
 
 const defaultCommonPresets = [
   {
@@ -183,7 +184,7 @@ function LayoutSelector({
             ref={dropdownRef}
           >
             <div className="bg-secondary flex flex-col gap-2.5 p-2">
-              <div className="text-button text-xs">Common</div>
+              <div className="text-button text-xs">{i18n.t('Notification:Common').toString()}</div>
 
               <div className="flex gap-4">
                 {commonPresets.map((preset, index) => (
@@ -199,7 +200,9 @@ function LayoutSelector({
 
               <div className="bg-secondary h-[2px]"></div>
 
-              <div className="text-xs text-gray-800">Advanced</div>
+              <div className="text-xs text-gray-800">
+                {i18n.t('Notification:Advanced').toString()}
+              </div>
 
               <div className="flex flex-col gap-2.5">
                 {advancedPresets.map((preset, index) => (
@@ -217,14 +220,18 @@ function LayoutSelector({
             </div>
 
             <div className="bg-secondary border-input flex flex-col gap-2.5 border border-solid p-2">
-              <div className="text-xs text-gray-800">Custom</div>
+              <div className="text-xs text-gray-800">
+                {i18n.t('Notification:Custom').toString()}
+              </div>
               <DropdownContent
                 rows={rows}
                 columns={columns}
                 onSelection={onSelection}
               />
               <p className="text-button text-xs leading-tight">
-                Hover to select <br></br>rows and columns <br></br> Click to apply
+                {i18n.t('Notification:Hover to select').toString()}
+                {i18n.t('Notification:rows and columns').toString()} <br></br>{' '}
+                {i18n.t('Notification:Click to apply').toString()}
               </p>
             </div>
           </div>

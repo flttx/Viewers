@@ -50,5 +50,19 @@
   "You can change the layout of the viewer using the layout button.": "您可以使用布局按钮更改查看器的布局。",
   "Selecting the MPR Layout": "选择MPR布局",
   "Select the MPR layout to view the images in MPR mode.": "选择MPR布局以在MPR模式下查看图像。",
-  "Skip all": "全部跳过"
+  "Skip all": "全部跳过",
+  "DICOM Tag Browser": "DICOM标签浏览器",
+  "Series": "序列",
+  "Select Series": "选择序列",
+  "Instance Number": "实例编号",
+  "Search metadata": "搜索元数据",
+  "Tag": "标签",
+  "Keyword": "关键字",
+  "Value": "值",
+  "Common": "常见",
+  "Advanced": "高级",
+  "Custom": "自定义",
+  "Hover to select": "悬停选择",
+  "rows and columns": "行和列",
+  "Click to apply": "点击应用"
 }

@@ -5,6 +5,7 @@ import { classes } from '@ohif/core';
 import { InputFilterText } from '@ohif/ui';
 import debounce from 'lodash.debounce';
 import { Select, SelectTrigger, SelectContent, SelectItem, Slider } from '@ohif/ui-next';
+import i18n from 'i18next';
 
 import DicomTagTable from './DicomTagTable';
 import './DicomTagBrowser.css';
@@ -112,14 +113,16 @@ const DicomTagBrowser = ({ displaySets, displaySetInstanceUID }) => {
       <div className="mb-6 flex flex-row items-start pl-1">
         <div className="flex w-full flex-row items-start gap-4">
           <div className="flex w-1/3 flex-col">
-            <span className="text-button flex h-6 items-center text-xs">Series</span>
+            <span className="text-button flex h-6 items-center text-xs">
+              {i18n.t('Notification:Series').toString()}
+            </span>
             <Select
               value={selectedDisplaySetInstanceUID}
               onValueChange={value => onSelectChange({ value })}
             >
               <SelectTrigger>
                 {displaySetList.find(ds => ds.value === selectedDisplaySetInstanceUID)?.label ||
-                  'Select Series'}
+                  i18n.t('Notification:Select Series').toString()}
               </SelectTrigger>
               <SelectContent>
                 {displaySetList.map(item => {
@@ -139,7 +142,8 @@ const DicomTagBrowser = ({ displaySets, displaySetInstanceUID }) => {
           {showInstanceList && (
             <div className="mx-auto flex w-1/5 flex-col">
               <span className="text-button flex h-6 items-center text-xs">
-                Instance Number ({instanceNumber} of {activeDisplaySet.images.length})
+                {i18n.t('Notification:Instance Number').toString()} ({instanceNumber} of{' '}
+                {activeDisplaySet.images.length})
               </span>
               <Slider
                 value={[instanceNumber]}
@@ -154,9 +158,11 @@ const DicomTagBrowser = ({ displaySets, displaySetInstanceUID }) => {
             </div>
           )}
           <div className="ml-auto flex w-1/3 flex-col">
-            <span className="text-button flex h-6 items-center text-xs">Search metadata</span>
+            <span className="text-button flex h-6 items-center text-xs">
+              {i18n.t('Notification:Search metadata').toString()}
+            </span>
             <InputFilterText
-              placeholder="Search metadata..."
+              placeholder={`${i18n.t('Notification:Search metadata').toString()}...`}
               onDebounceChange={setFilterValue}
             />
           </div>

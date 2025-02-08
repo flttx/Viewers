@@ -10,6 +10,7 @@ import filesToStudies from './filesToStudies';
 import { extensionManager } from '../../App.tsx';
 
 import { Icon, Button, LoadingIndicatorProgress } from '@ohif/ui';
+import { Icons } from '@ohif/ui-next';
 
 const getLoadButton = (onDrop, text, isDir) => {
   return (
@@ -53,7 +54,7 @@ type LocalProps = {
   modePath: string;
 };
 
-function Local({ modePath }: LocalProps) {
+function Local({ modePath, commandManager }: LocalProps) {
   const navigate = useNavigate();
   const dropzoneRef = useRef();
   const [dropInitiated, setDropInitiated] = React.useState(false);
@@ -136,10 +137,7 @@ function Local({ modePath }: LocalProps) {
           <div className="flex h-screen w-screen items-center justify-center">
             <div className="bg-secondary mx-auto space-y-2 rounded-lg py-8 px-8 drop-shadow-md">
               <div className="flex items-center justify-center">
-                <Icon
-                  name="logo"
-                  className="w-50 h-16"
-                />
+                <Icons.Logo className="w-50 h-16" />
               </div>
               <div className="space-y-2 pt-4 text-center">
                 {dropInitiated ? (

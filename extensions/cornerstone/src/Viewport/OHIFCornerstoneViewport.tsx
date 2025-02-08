@@ -287,6 +287,13 @@ const OHIFCornerstoneViewport = React.memo(
         if (measurement) {
           cs3DTools.annotation.selection.setAnnotationSelected(measurement.uid);
         }
+
+        // setTimeout(() => {
+        //   commandsManager.run({
+        //     commandName: 'setHangingProtocol',
+        //     commandOptions: { protocolId: 'mpr' },
+        //   });
+        // }, 1000);
       };
 
       loadViewportData();

@@ -470,7 +470,7 @@ function VOIOverlayItem({ voi, customization }: OverlayItemProps) {
 
   return (
     <div
-      className="overlay-item flex flex-row"
+      className="overlay-item text-primary flex flex-row"
       style={{ color: customization?.color }}
     >
       <span className="mr-1 shrink-0">W:</span>
@@ -508,7 +508,7 @@ function InstanceNumberOverlayItem({
 
   return (
     <div
-      className="overlay-item flex flex-row"
+      className="overlay-item text-primary flex flex-row"
       style={{ color: (customization && customization.color) || undefined }}
     >
       <span>

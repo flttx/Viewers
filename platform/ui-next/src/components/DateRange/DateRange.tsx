@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { format, parse, isValid } from 'date-fns';
 import { Calendar as CalendarIcon } from 'lucide-react';
+import i18n from 'i18next';
 import { cn } from '../../lib/utils';
 import { Calendar } from '../Calendar';
 import * as Popover from '../Popover';
@@ -85,7 +86,7 @@ export function DatePickerWithRange({
             <input
               id={`${id}-start`}
               type="text"
-              placeholder="Start date"
+              placeholder={i18n.t('DatePicker:Start Date')}
               autoComplete="off"
               value={start}
               onChange={e => handleInputChange(e, 'start')}
@@ -122,7 +123,7 @@ export function DatePickerWithRange({
             <input
               id={`${id}-end`}
               type="text"
-              placeholder="End date"
+              placeholder={i18n.t('DatePicker:End Date')}
               autoComplete="off"
               value={end}
               onChange={e => handleInputChange(e, 'end')}

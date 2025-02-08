@@ -28,8 +28,8 @@ export const StatusTracking = (props: IconProps) => (
         ></rect>
         <rect
           id="Rectangle"
-          stroke="#5ACCE6"
-          fill="#5ACCE6"
+          stroke="#16c2a6"
+          fill="#16c2a6"
           x="4.5"
           y="4.5"
           width="15"
@@ -39,7 +39,7 @@ export const StatusTracking = (props: IconProps) => (
         <path
           d="M15.388889,9 L11.7739644,14.5948033 C11.6112717,14.8456871 11.3630166,15.0025668 11.0931982,15.0249993 C10.8233798,15.0474318 10.5584004,14.9332222 10.3665704,14.7118131 L8.5,12.5449644"
           id="Path"
-          stroke="#090C29"
+          stroke="#FFFFFF"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"

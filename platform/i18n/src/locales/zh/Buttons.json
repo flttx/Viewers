@@ -72,5 +72,15 @@
   "Delete": "删除",
   "Lock": "锁定",
   "Unlock": "解锁",
-  "Change Color": "更改颜色"
+  "Change Color": "更改颜色",
+  "Tag Browser": "标签浏览器",
+  "Image Slice Sync": "图像切片联动",
+  "Zoom-in": "放大",
+  "Cobb Angle": "科布角",
+  "Image Overlay": "图像叠加",
+  "Calibration": "校准",
+  "Dicom Tag Browser": "Dicom标签浏览器",
+  "Magnify Probe": "放大探针",
+  "Ultrasound Directional": "超声方向",
+  "Window Level Region": "窗位区域"
 }

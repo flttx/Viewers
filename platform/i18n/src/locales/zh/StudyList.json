@@ -10,7 +10,7 @@
   "Study date": "检查日期",
   "Description": "描述",
   "Study list": "检查列表",
-  "Clear filters": "清空条件",
+  "ClearFilters": "清空条件",
   "Number of studies": "",
   "Instances": "图像数",
   "Accession": "检查号",
@@ -24,5 +24,6 @@
   "Loading...": "加载中...",
   "Select...": "选择...",
   "InstitutionName": "检查机构",
-  "Studies": "检查"
+  "Studies": "检查",
+  "Patient": "患者"
 }

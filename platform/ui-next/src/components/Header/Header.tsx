@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
 import {
   DropdownMenu,
@@ -42,8 +41,6 @@ function Header({
   Secondary,
   ...props
 }: HeaderProps): ReactNode {
-  const { t } = useTranslation('Header');
-
   const onClickReturn = () => {
     if (isReturnEnabled && onClickReturnButton) {
       onClickReturnButton();
@@ -70,7 +67,7 @@ function Header({
               className="ml-1"
               style={{ width: '128px', height: '28px' }}
             >
-              {WhiteLabeling?.createLogoComponentFn?.(React, props) || <Icons.OHIFLogo />}
+              {WhiteLabeling?.createLogoComponentFn?.(React, props) || <Icons.Logo />}
             </div>
           </div>
         </div>

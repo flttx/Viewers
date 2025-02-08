@@ -56,23 +56,23 @@ NotFoundStudy.propTypes = {
 // TODO: Include "routes" debug route if dev build
 const bakedInRoutes = [
   {
-    path: `${publicUrl}notfoundserver`,
+    path: `/notfoundserver`,
     children: NotFoundServer,
   },
   {
-    path: `${publicUrl}notfoundstudy`,
+    path: `/notfoundstudy`,
     children: NotFoundStudy,
   },
   {
-    path: `${publicUrl}debug`,
+    path: `/debug`,
     children: Debug,
   },
   {
-    path: `${publicUrl}local`,
+    path: `/local`,
     children: Local.bind(null, { modePath: '' }), // navigate to the worklist
   },
   {
-    path: `${publicUrl}localbasic`,
+    path: `/localbasic`,
     children: Local.bind(null, { modePath: 'viewer/dicomlocal' }),
   },
 ];
@@ -109,12 +109,17 @@ const createRoutes = ({
     props: { children: WorkList, servicesManager, extensionManager },
   };
 
+  const LocalRoute = {
+    path: '/',
+    children: Local.bind(null, { modePath: '' }),
+  };
+
   const customRoutes = customizationService.getGlobalCustomization('customRoutes');
   const allRoutes = [
     ...routes,
     ...(showStudyList ? [WorkListRoute] : []),
     // This next line adds a route on / to allow loading from the route and redirecting to the public url
-    ...(publicUrl !== '/' && showStudyList ? [{ ...WorkListRoute, path: '/' }] : []),
+    ...(publicUrl !== '/' && showStudyList ? [{ ...WorkListRoute, path: '/' }] : [LocalRoute]),
     ...(customRoutes?.routes || []),
     ...bakedInRoutes,
     customRoutes?.notFoundRoute || notFoundRoute,

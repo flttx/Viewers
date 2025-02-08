@@ -27,6 +27,7 @@ import InfoSeries from './Sources/InfoSeries';
 import ListView from './Sources/ListView';
 import LoadingSpinner from './Sources/LoadingSpinner';
 import Lock from './Sources/Lock';
+import Logo from './Sources/Logo';
 import Minus from './Sources/Minus';
 import MissingIcon from './Sources/MissingIcon';
 import More from './Sources/More';
@@ -122,6 +123,7 @@ import {
   ToolBrush,
   ToolThreshold,
   ToolShape,
+  ToolImport,
 } from './Sources/Tools';
 import ActionNewDialog from './Sources/ActionNewDialog';
 import NotificationInfo from './Sources/NotificationInfo';
@@ -411,6 +413,7 @@ export const Icons = {
   ToolWindowLevel,
   ToolWindowRegion,
   ToolZoom,
+  ToolImport,
   LaunchArrow,
   LaunchInfo,
   Upload,
@@ -443,6 +446,7 @@ export const Icons = {
   ListView,
   LoadingSpinner,
   Lock,
+  Logo,
   Minus,
   MissingIcon,
   More,
@@ -645,6 +649,7 @@ export const Icons = {
   'icon-tool-probe': (props: IconProps) => ToolProbe(props),
   'tool-zoom': (props: IconProps) => ToolZoom(props),
   'tool-layout': (props: IconProps) => ToolLayout(props),
+  'tool-import': (props: IconProps) => ToolImport(props),
   'icon-transferring': (props: IconProps) => IconTransferring(props),
   'icon-alert-small': (props: IconProps) => Alert(props),
   'icon-alert-outline': (props: IconProps) => AlertOutline(props),
