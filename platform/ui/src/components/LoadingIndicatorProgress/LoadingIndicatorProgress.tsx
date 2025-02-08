@@ -1,9 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import Icon from '../Icon';
 import ProgressLoadingBar from '../ProgressLoadingBar';
-
+import { Icons } from '@ohif/ui-next';
 /**
  *  A React component that renders a loading indicator.
  * if progress is not provided, it will render an infinite loading indicator
@@ -18,8 +17,7 @@ function LoadingIndicatorProgress({ className, textBlock, progress }) {
         className
       )}
     >
-      <Icon
-        name="logo"
+      <Icons.Logo
         className="h-40 w-40 text-white"
       />
       <div className="w-48">

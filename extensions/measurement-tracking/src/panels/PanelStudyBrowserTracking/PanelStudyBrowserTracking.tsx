@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import i18n from 'i18next';
+import { useTranslation } from 'react-i18next';
 import PropTypes from 'prop-types';
 import { utils } from '@ohif/core';
-import { useImageViewer, useViewportGrid, Dialog, ButtonEnums } from '@ohif/ui';
+import { useImageViewer, Dialog, ButtonEnums } from '@ohif/ui';
+import { useViewportGrid } from '@ohif/ui-next';
 import { StudyBrowser } from '@ohif/ui-next';
 
 import { useTrackedMeasurements } from '../../getContextModule';
@@ -50,6 +51,8 @@ export default function PanelStudyBrowserTracking({
     id: 'default',
     mode: 'all',
   });
+
+  const { t } = useTranslation('Common');
 
   // Normally you nest the components so the tree isn't so deep, and the data
   // doesn't have to have such an intense shape. This works well enough for now.
@@ -153,7 +156,7 @@ export default function PanelStudyBrowserTracking({
       const actuallyMappedStudies = mappedStudies.map(qidoStudy => {
         return {
           studyInstanceUid: qidoStudy.StudyInstanceUID,
-          date: formatDate(qidoStudy.StudyDate) || i18n.t('Common:NoStudyDate'),
+          date: formatDate(qidoStudy.StudyDate) || t('NoStudyDate'),
           description: qidoStudy.StudyDescription,
           modalities: qidoStudy.ModalitiesInStudy,
           numInstances: qidoStudy.NumInstances,
@@ -445,28 +448,24 @@ export default function PanelStudyBrowserTracking({
       showOverlay: true,
       content: Dialog,
       contentProps: {
-        title: i18n.t('Notification:Untrack Series'),
+        title: 'Untrack Series',
         body: () => (
-          <div className="text-button bg-white p-4">
-            <p>{i18n.t('Notification:Are you sure you want to untrack this series?').toString()}</p>
+          <div className="bg-primary-dark p-4 text-white">
+            <p>Are you sure you want to untrack this series?</p>
             <p className="mt-2">
-              {i18n
-                .t(
-                  'Notification:This action cannot be undone and will delete all your existing measurements.'
-                )
-                .toString()}
+              This action cannot be undone and will delete all your existing measurements.
             </p>
           </div>
         ),
         actions: [
           {
             id: 'cancel',
-            text: i18n.t('Notification:Cancel'),
+            text: 'Cancel',
             type: ButtonEnums.type.secondary,
           },
           {
             id: 'yes',
-            text: i18n.t('Notification:Yes'),
+            text: 'Yes',
             type: ButtonEnums.type.primary,
             classes: ['untrack-yes-button'],
           },
@@ -502,8 +501,8 @@ export default function PanelStudyBrowserTracking({
         />
         <Separator
           orientation="horizontal"
-          className="bg-border"
-          thickness="1px"
+          className="bg-black"
+          thickness="2px"
         />
       </>
 

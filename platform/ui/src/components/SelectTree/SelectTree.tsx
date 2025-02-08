@@ -3,10 +3,9 @@ import i18n from 'i18next';
 import InputRadio from './InputRadio';
 import SelectTreeBreadcrumb from './SelectTreeBreadcrumb';
 import cloneDeep from 'lodash.clonedeep';
-import Icon from '../Icon';
 import Button, { ButtonEnums } from '../Button';
 import { LabelInfo } from '../Labelling/LabellingFlow';
-
+import { Icons } from '@ohif/ui-next';
 interface PropType {
   autoFocus: boolean;
   searchEnabled: boolean;
@@ -177,8 +176,7 @@ export class SelectTree extends Component<PropType> {
         <div className="text-primary m-0 mb-5 p-2 leading-tight">
           <span className="text-primary align-sub text-xl">{title}</span>
           <div className="float-right">
-            <Icon
-              name="icon-close"
+            <Icons.Close
               className="text-button-disabled cursor-pointer"
               onClick={() => this.props.closePopup()}
             />
@@ -188,10 +186,7 @@ export class SelectTree extends Component<PropType> {
           <div className="flex w-full flex-col">
             {this.props.items.length > 0 && (
               <div className="absolute mt-2 mr-2.5 mb-3 ml-3 h-4 w-4">
-                <Icon
-                  name="icon-search"
-                  fill="#a3a3a3"
-                />
+                <Icons.Magnifier fill="#a3a3a3" />
               </div>
             )}
             <input

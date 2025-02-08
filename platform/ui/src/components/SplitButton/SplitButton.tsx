@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import OutsideClickHandler from 'react-outside-click-handler';
 import { useTranslation } from 'react-i18next';
 
-import Icon from '../Icon';
 import Tooltip from '../Tooltip';
 import ListMenu from '../ListMenu';
+import { Icons } from '@ohif/ui-next';
 
 const baseClasses = {
   Button: 'flex items-center rounded-md border-transparent group/button',
@@ -68,7 +68,7 @@ const DefaultListItemRenderer = props => {
     >
       {icon && (
         <span className="mr-4">
-          <Icon
+          <Icons.ByName
             name={icon}
             className="h-[28px] w-[28px]"
           />
@@ -90,7 +90,7 @@ const SplitButton = ({
   items,
   renderer = null,
   onInteraction,
-  Component = Icon,
+  Component = Icons.ByName,
 }) => {
   const { t } = useTranslation('Buttons');
   const [state, setState] = useState({ isHovering: false, isExpanded: false });
@@ -145,7 +145,7 @@ const SplitButton = ({
                 content={secondary.tooltip}
                 className="h-full"
               >
-                <Icon
+                <Icons.ByName
                   name={secondary.icon}
                   className={classes.SecondaryIcon({ ...state })}
                 />

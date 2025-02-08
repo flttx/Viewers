@@ -23,6 +23,7 @@ const getLoadButton = (onDrop, text, isDir) => {
             rounded="full"
             variant="contained" // outlined
             disabled={false}
+            endIcon={<Icons.LaunchArrow />}
             className={classnames(
               'font-medium',
               'ml-2',
