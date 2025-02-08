@@ -65,5 +65,12 @@
   "W/L Presets": "窗位预设",
   "Window Level": "窗位",
   "Zoom": "放大",
-  "Import": "导入"
+  "Import": "导入",
+  "Yes": "是",
+  "No": "否",
+  "Rename": "重命名",
+  "Delete": "删除",
+  "Lock": "锁定",
+  "Unlock": "解锁",
+  "Change Color": "更改颜色"
 }

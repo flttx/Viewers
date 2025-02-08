@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import i18n from 'i18next';
 import PropTypes from 'prop-types';
 import { utils } from '@ohif/core';
 import { useImageViewer, useViewportGrid, Dialog, ButtonEnums } from '@ohif/ui';
@@ -50,8 +50,6 @@ export default function PanelStudyBrowserTracking({
     id: 'default',
     mode: 'all',
   });
-
-  const { t } = useTranslation('Common');
 
   // Normally you nest the components so the tree isn't so deep, and the data
   // doesn't have to have such an intense shape. This works well enough for now.
@@ -155,7 +153,7 @@ export default function PanelStudyBrowserTracking({
       const actuallyMappedStudies = mappedStudies.map(qidoStudy => {
         return {
           studyInstanceUid: qidoStudy.StudyInstanceUID,
-          date: formatDate(qidoStudy.StudyDate) || t('NoStudyDate'),
+          date: formatDate(qidoStudy.StudyDate) || i18n.t('Common:NoStudyDate'),
           description: qidoStudy.StudyDescription,
           modalities: qidoStudy.ModalitiesInStudy,
           numInstances: qidoStudy.NumInstances,
@@ -447,24 +445,28 @@ export default function PanelStudyBrowserTracking({
       showOverlay: true,
       content: Dialog,
       contentProps: {
-        title: 'Untrack Series',
+        title: i18n.t('Notification:Untrack Series'),
         body: () => (
-          <div className="bg-primary-dark p-4 text-white">
-            <p>Are you sure you want to untrack this series?</p>
+          <div className="text-button bg-white p-4">
+            <p>{i18n.t('Notification:Are you sure you want to untrack this series?').toString()}</p>
             <p className="mt-2">
-              This action cannot be undone and will delete all your existing measurements.
+              {i18n
+                .t(
+                  'Notification:This action cannot be undone and will delete all your existing measurements.'
+                )
+                .toString()}
             </p>
           </div>
         ),
         actions: [
           {
             id: 'cancel',
-            text: 'Cancel',
+            text: i18n.t('Notification:Cancel'),
             type: ButtonEnums.type.secondary,
           },
           {
             id: 'yes',
-            text: 'Yes',
+            text: i18n.t('Notification:Yes'),
             type: ButtonEnums.type.primary,
             classes: ['untrack-yes-button'],
           },

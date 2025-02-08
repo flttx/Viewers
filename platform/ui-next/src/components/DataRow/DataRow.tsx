@@ -8,6 +8,7 @@ import {
 } from '../../components/DropdownMenu';
 import { Icons } from '../../components/Icons/Icons';
 import { Tooltip, TooltipTrigger, TooltipContent } from '../../components/Tooltip/Tooltip';
+import i18n from 'i18next';
 
 /**
  * DataRow is a complex UI component that displays a selectable, interactive row with hierarchical data.
@@ -184,7 +185,7 @@ const DataRow: React.FC<DataRowProps> = ({
     <div className={`flex flex-col ${isVisible ? '' : 'opacity-60'}`}>
       <div
         className={`flex items-center ${
-          isSelected ? 'bg-primary' : 'bg-foreground'
+          isSelected ? 'bg-primary/20' : 'bg-foreground'
         } group relative cursor-pointer`}
         onClick={onSelect}
         data-cy="data-row"
@@ -234,7 +235,7 @@ const DataRow: React.FC<DataRowProps> = ({
           ) : (
             <span
               className={`text-base ${
-                isSelected ? 'text-white' : 'text-button'
+                isSelected ? 'text-primary/80' : 'text-button'
               } [overflow:hidden] [display:-webkit-box] [-webkit-line-clamp:2] [-webkit-box-orient:vertical]`}
             >
               {title}
@@ -282,24 +283,28 @@ const DataRow: React.FC<DataRowProps> = ({
               {!disableEditing && (
                 <>
                   <DropdownMenuItem onClick={e => handleAction('Rename', e)}>
-                    <Icons.Rename className="text-foreground" />
-                    <span className="pl-2">Rename</span>
+                    <Icons.Rename className="text-button" />
+                    <span className="pl-2">{i18n.t('Buttons:Rename').toString()}</span>
                   </DropdownMenuItem>
                   <DropdownMenuItem onClick={e => handleAction('Delete', e)}>
-                    <Icons.Delete className="text-foreground" />
-                    <span className="pl-2">Delete</span>
+                    <Icons.Delete className="text-button" />
+                    <span className="pl-2">{i18n.t('Buttons:Delete').toString()}</span>
                   </DropdownMenuItem>
                   {onColor && (
                     <DropdownMenuItem onClick={e => handleAction('Color', e)}>
-                      <Icons.ColorChange className="text-foreground" />
-                      <span className="pl-2">Change Color</span>
+                      <Icons.ColorChange className="text-button" />
+                      <span className="pl-2">{i18n.t('Buttons:Change Color').toString()}</span>
                     </DropdownMenuItem>
                   )}
                 </>
               )}
               <DropdownMenuItem onClick={e => handleAction('Lock', e)}>
-                <Icons.Lock className="text-foreground" />
-                <span className="pl-2">{isLocked ? 'Unlock' : 'Lock'}</span>
+                <Icons.Lock className="text-button" />
+                <span className="pl-2">
+                  {isLocked
+                    ? i18n.t('Buttons:Unlock').toString()
+                    : i18n.t('Buttons:Lock').toString()}
+                </span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -309,10 +314,10 @@ const DataRow: React.FC<DataRowProps> = ({
       {/* Details Section */}
       {details && (details.primary?.length > 0 || details.secondary?.length > 0) && (
         <div className="ml-7 px-2 py-2">
-          <div className="text-secondary-foreground flex items-center gap-1 text-base leading-normal">
+          <div className="text-button flex items-center gap-1 text-base leading-normal">
             {details.primary?.length > 0 && renderDetails(details.primary)}
             {details.secondary?.length > 0 && (
-              <div className="text-muted-foreground ml-auto text-sm">
+              <div className="text-button/50 ml-auto text-sm">
                 {renderDetails(details.secondary)}
               </div>
             )}

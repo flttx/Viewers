@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useShepherd } from 'react-shepherd';
 import { StepOptions, TourOptions } from 'shepherd.js';
 import { useLocation } from 'react-router';
+import i18n from 'i18next';
 import 'shepherd.js/dist/css/shepherd.css';
 import './Onboarding.css';
 
@@ -35,6 +36,10 @@ const Onboarding = () => {
       ...matchingTour.tourOptions,
       defaultStepOptions: {
         ...matchingTour.tourOptions?.defaultStepOptions,
+        buttons: (matchingTour.tourOptions?.defaultStepOptions?.buttons || []).map(button => ({
+          ...button,
+          text: i18n.t(`Notification:${button.text}`),
+        })),
         floatingUIOptions: matchingTour.tourOptions?.defaultStepOptions?.floatingUIOptions || {
           middleware,
         },
@@ -46,7 +51,13 @@ const Onboarding = () => {
         },
       },
     });
-    matchingTour.steps.forEach(step => tourInstance.addStep(step));
+    matchingTour.steps.forEach(step =>
+      tourInstance.addStep({
+        ...step,
+        title: i18n.t(`Notification:${step.title}`),
+        text: i18n.t(`Notification:${step.text}`),
+      })
+    );
     tourInstance.start();
     markTourAsShown(matchingTour.id);
   }, [Shepherd, tours, location.pathname]);

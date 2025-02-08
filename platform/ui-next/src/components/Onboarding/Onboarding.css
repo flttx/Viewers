@@ -3,7 +3,7 @@
 }
 
 .shepherd-title {
-  @apply !text-highlight !w-[100%] !break-words !text-xl !leading-[1.5];
+  @apply !text-primary !w-[100%] !break-words !text-xl !leading-[1.5];
 }
 
 .shepherd-content {
@@ -15,7 +15,7 @@
 }
 
 .shepherd-text {
-  @apply text-foreground !w-[100%] p-0 text-lg leading-normal;
+  @apply text-button !w-[100%] p-0 text-lg leading-normal;
 }
 
 .shepherd-footer {
@@ -27,7 +27,7 @@
 }
 
 .shepherd-button.shepherd-button-secondary {
-  @apply !bg-transparent !text-[#348cfd];
+  @apply !text-primary !bg-transparent;
 }
 
 .shepherd-arrow::before {

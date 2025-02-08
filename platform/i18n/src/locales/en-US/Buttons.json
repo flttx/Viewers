@@ -48,5 +48,12 @@
   "Stop": "$t(Common:Stop)",
   "Themes": "Themes",
   "Zoom": "Zoom",
-  "Import": "Import"
+  "Import": "Import",
+  "Yes": "Yes",
+  "No": "No",
+  "Rename": "Rename",
+  "Delete": "Delete",
+  "Lock": "Lock",
+  "Unlock": "Unlock",
+  "Change Color": "Change Color"
 }

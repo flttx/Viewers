@@ -1,4 +1,5 @@
 import React from 'react';
+import i18n from 'i18next';
 import LegacyViewportActionBar from '../LegacyViewportActionBar';
 import Notification from '../Notification';
 
@@ -45,17 +46,17 @@ const Viewport: React.FC<ViewportProps> = ({ viewportId, onArrowsClick, studyDat
           actions={[
             {
               type: 'cancel',
-              text: 'No',
+              text: i18n.t('Buttons:No'),
               value: 0,
             },
             {
               type: 'secondary',
-              text: 'No, do not ask again',
+              text: i18n.t('MeasurementTable:No, do not ask again'),
               value: -1,
             },
             {
               type: 'primary',
-              text: 'Yes',
+              text: i18n.t('Buttons:Yes'),
               value: 1,
             },
           ]}

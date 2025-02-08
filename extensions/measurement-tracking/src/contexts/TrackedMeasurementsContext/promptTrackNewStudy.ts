@@ -39,17 +39,17 @@ function _askTrackMeasurements(
   viewportId
 ) {
   return new Promise(function (resolve, reject) {
-    const message = i18n.t('MeasurementTable:Track measurements for this series?');
+    const message = i18n.t('Notification:Track measurements for this series?');
     const actions = [
-      { type: 'cancel', text: i18n.t('MeasurementTable:No'), value: RESPONSE.CANCEL },
+      { type: 'cancel', text: i18n.t('Notification:No'), value: RESPONSE.CANCEL },
       {
         type: 'secondary',
-        text: i18n.t('MeasurementTable:No, do not ask again'),
+        text: i18n.t('Notification:No, do not ask again'),
         value: RESPONSE.NO_NOT_FOR_SERIES,
       },
       {
         type: 'primary',
-        text: i18n.t('MeasurementTable:Yes'),
+        text: i18n.t('Notification:Yes'),
         value: RESPONSE.SET_STUDY_AND_SERIES,
       },
     ];

@@ -20,8 +20,11 @@ async function createReportAsync({
 
   try {
     const naturalizedReport = await getReport();
+    console.log('naturalizedReport:', naturalizedReport);
 
-    if (!naturalizedReport) return;
+    if (!naturalizedReport) {
+      return;
+    }
 
     // The "Mode" route listens for DicomMetadataStore changes
     // When a new instance is added, it listens and
@@ -52,7 +55,7 @@ async function createReportAsync({
 }
 
 function Loading() {
-  return <div className="text-primary-active">Loading...</div>;
+  return <div className="text-primary">Loading...</div>;
 }
 
 export default createReportAsync;

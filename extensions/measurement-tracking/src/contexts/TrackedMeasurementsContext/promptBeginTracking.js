@@ -32,24 +32,24 @@ function promptBeginTracking({ servicesManager, extensionManager }, ctx, evt) {
 
 function _askTrackMeasurements(uiViewportDialogService, viewportId) {
   return new Promise(function (resolve, reject) {
-    const message = i18n.t('MeasurementTable:Track measurements for this series?');
+    const message = i18n.t('Notification:Track measurements for this series?');
     const actions = [
       {
         id: 'prompt-begin-tracking-cancel',
         type: ButtonEnums.type.secondary,
-        text: i18n.t('Common:No'),
+        text: i18n.t('Notification:No'),
         value: RESPONSE.CANCEL,
       },
       {
         id: 'prompt-begin-tracking-no-do-not-ask-again',
         type: ButtonEnums.type.secondary,
-        text: i18n.t('MeasurementTable:No, do not ask again'),
+        text: i18n.t('Notification:No, do not ask again'),
         value: RESPONSE.NO_NEVER,
       },
       {
         id: 'prompt-begin-tracking-yes',
         type: ButtonEnums.type.primary,
-        text: i18n.t('Common:Yes'),
+        text: i18n.t('Notification:Yes'),
         value: RESPONSE.SET_STUDY_AND_SERIES,
       },
     ];

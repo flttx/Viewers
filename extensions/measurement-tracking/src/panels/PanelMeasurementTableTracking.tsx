@@ -5,7 +5,7 @@ import { StudySummary } from '@ohif/ui-next';
 import { Button, Icons } from '@ohif/ui-next';
 import { DicomMetadataStore, utils } from '@ohif/core';
 import { useTrackedMeasurements } from '../getContextModule';
-import { useTranslation } from 'react-i18next';
+import i18n from 'i18next';
 
 const { downloadCSVReport, formatDate } = utils;
 
@@ -22,7 +22,6 @@ function PanelMeasurementTableTracking({
   commandsManager,
 }: withAppTypes) {
   const [viewportGrid] = useViewportGrid();
-  const { t } = useTranslation('MeasurementTable');
   const { measurementService, customizationService, uiDialogService } = servicesManager.services;
   const [trackedMeasurements, sendTrackedMeasurementsEvent] = useTrackedMeasurements();
   const { trackedStudy, trackedSeries } = trackedMeasurements.context;
@@ -121,7 +120,7 @@ function PanelMeasurementTableTracking({
                   <Icons.Download className="h-5 w-5" />
                   <span className="pl-1">CSV</span>
                 </Button>
-                <Button
+                {/* <Button
                   size="sm"
                   variant="ghost"
                   className="pl-0.5"
@@ -134,7 +133,7 @@ function PanelMeasurementTableTracking({
                 >
                   <Icons.Add />
                   Create SR
-                </Button>
+                </Button> */}
                 <Button
                   size="sm"
                   variant="ghost"
@@ -147,22 +146,29 @@ function PanelMeasurementTableTracking({
                       showOverlay: true,
                       content: Dialog,
                       contentProps: {
-                        title: 'Delete All Measurements',
+                        title: i18n.t('Notification:Delete All Measurements'),
                         body: () => (
-                          <div className="bg-primary-dark text-white">
-                            <p>Are you sure you want to delete all measurements?</p>
-                            <p className="mt-2">This action cannot be undone.</p>
+                          <div className="text-button bg-white">
+                            <p>
+                              {i18n
+                                .t('Notification:Are you sure you want to delete all measurements?')
+                                .toString()}
+                            </p>
+                            <p className="mt-2">
+                              {' '}
+                              {i18n.t('Notification:This action cannot be undone.').toString()}
+                            </p>
                           </div>
                         ),
                         actions: [
                           {
                             id: 'cancel',
-                            text: 'Cancel',
+                            text: i18n.t('Notification:Cancel'),
                             type: ButtonEnums.type.secondary,
                           },
                           {
                             id: 'yes',
-                            text: 'Delete All',
+                            text: i18n.t('Notification:Delete All'),
                             type: ButtonEnums.type.primary,
                             classes: ['delete-all-yes-button'],
                           },
@@ -184,7 +190,7 @@ function PanelMeasurementTableTracking({
                   }}
                 >
                   <Icons.Delete />
-                  Delete All
+                  {i18n.t('Notification:Delete All').toString()}
                 </Button>
               </div>
             </div>
