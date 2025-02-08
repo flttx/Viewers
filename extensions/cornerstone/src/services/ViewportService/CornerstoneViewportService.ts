@@ -839,8 +839,6 @@ class CornerstoneViewportService extends PubSubService implements IViewportServi
     // For SEG and RT viewports
     const { addOverlayFn } = this._processExtraDisplaySetsForViewport(viewport) || {};
 
-    console.log('volumeInputArray:', volumeInputArray);
-
     await viewport.setVolumes(volumeInputArray);
 
     if (addOverlayFn) {

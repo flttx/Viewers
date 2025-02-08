@@ -20,7 +20,6 @@ async function createReportAsync({
 
   try {
     const naturalizedReport = await getReport();
-    console.log('naturalizedReport:', naturalizedReport);
 
     if (!naturalizedReport) {
       return;

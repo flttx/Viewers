@@ -204,21 +204,6 @@ class CornerstoneCacheService {
         // assign imageIds to the displaySet
         displaySet.imageIds = stackImageIds;
         this.stackImageIds.set(displaySet.displaySetInstanceUID, stackImageIds);
-
-        // 获取元数据
-        const metaDataRes = metaData.get('imagePixelModule', stackImageIds[0]);
-        console.log('metaDataRes:', metaDataRes); // 确保 metaData 不是 undefined
-      }
-
-      try {
-        const volumeLoaderSchema = displaySet.volumeLoaderSchema ?? VOLUME_LOADER_SCHEME;
-        const volumeId = `${volumeLoaderSchema}:${displaySet.displaySetInstanceUID}`;
-        const volume = await volumeLoader.createAndCacheVolume(volumeId, {
-          imageIds: stackImageIds,
-        });
-        console.log('volume:', volume);
-      } catch (error) {
-        console.error('createAndCacheVolume error:', error);
       }
 
       StackViewportData.push({
