@@ -75,7 +75,7 @@ const HotkeysPreferences = ({
                         <Typography
                           variant="subtitle"
                           className={classNames(
-                            'text-primary-light w-full pr-6 text-right',
+                            'text-primary w-full pr-6 text-right',
                             !isFirst && 'hidden'
                           )}
                         >
@@ -84,18 +84,18 @@ const HotkeysPreferences = ({
                         <Typography
                           variant="subtitle"
                           className={classNames(
-                            'flex h-full flex-row items-center whitespace-nowrap pr-6',
+                            '!text-button flex h-full flex-row items-center whitespace-nowrap pr-6',
                             isFirst && 'mt-5'
                           )}
                         >
-                          {definition.label}
+                          {t(definition.label)}
                         </Typography>
                       </div>
                       <div className="flex flex-col">
                         <Typography
                           variant="subtitle"
                           className={classNames(
-                            'text-primary-light pr-6 pl-0 text-left',
+                            'text-primary pr-6 pl-0 text-left',
                             !isFirst && 'hidden'
                           )}
                         >
@@ -132,7 +132,7 @@ HotkeysPreferences.propTypes = {
   disabled: PropTypes.bool,
   hotkeyDefinitions: PropTypes.object.isRequired,
   hotkeysModule: PropTypes.shape({
-    initialize: PropTypes.func.isRequired,
+    // initialize: PropTypes.func.isRequired,
     pause: PropTypes.func.isRequired,
     unpause: PropTypes.func.isRequired,
     startRecording: PropTypes.func.isRequired,
