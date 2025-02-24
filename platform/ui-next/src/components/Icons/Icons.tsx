@@ -185,6 +185,8 @@ import Magnifier from './Sources/Magnifier';
 import LoadingOHIFMark from './Sources/LoadingOHIFMark';
 import ArrowLeftBold from './Sources/ArrowLeftBold';
 import Pencil from './Sources/Pencil';
+import Back from './Sources/Back';
+import CareRight from './Sources/CareRight';
 //
 //
 //
@@ -546,6 +548,8 @@ export const Icons = {
   OHIFLogoColorDarkBackground,
   Magnifier,
   Pencil,
+  Back,
+  CareRight,
   //
   //
   //

@@ -41,10 +41,10 @@ function ViewerLayout({
    * is sized to our viewport.
    */
   useEffect(() => {
-    document.body.classList.add('bg-secondary');
+    document.body.classList.add('bg-[##f0f5f4]');
     document.body.classList.add('overflow-hidden');
     return () => {
-      document.body.classList.remove('bg-secondary');
+      document.body.classList.remove('bg-[##f0f5f4]');
       document.body.classList.remove('overflow-hidden');
     };
   }, []);
@@ -135,7 +135,7 @@ function ViewerLayout({
           ) : null}
           {/* TOOLBAR + GRID */}
           <div className="flex h-full flex-1 flex-col">
-            <div className="bg-secondary relative flex h-full flex-1 items-center justify-center overflow-hidden">
+            <div className="relative flex h-full flex-1 items-center justify-center overflow-hidden bg-[#f0f5f4]">
               <ViewportGridComp
                 servicesManager={servicesManager}
                 viewportComponents={viewportComponents}

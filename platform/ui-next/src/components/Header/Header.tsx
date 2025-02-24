@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -42,40 +43,38 @@ function Header({
   ...props
 }: HeaderProps): ReactNode {
   const onClickReturn = () => {
-    if (isReturnEnabled && onClickReturnButton) {
-      onClickReturnButton();
-    }
+    // 通知父窗口返回到工作列表
+    window.parent.postMessage(
+      {
+        type: 'back-to-case',
+      },
+      '*'
+    );
   };
+  const { t } = useTranslation();
 
   return (
     <NavBar
       isSticky={isSticky}
       {...props}
     >
-      <div className="relative h-[48px] items-center">
+      <div className="relative mb-[30px] h-[48px] items-center">
         <div className="absolute left-0 top-1/2 flex -translate-y-1/2 items-center">
           <div
-            className={classNames(
-              'mr-3 inline-flex items-center',
-              isReturnEnabled && 'cursor-pointer'
-            )}
+            className={classNames('mr-3 inline-flex cursor-pointer items-center')}
             onClick={onClickReturn}
             data-cy="return-to-work-list"
           >
-            {isReturnEnabled && <Icons.ArrowLeft className="text-primary w-8" />}
-            <div
-              className="ml-1"
-              style={{ width: '128px', height: '28px' }}
-            >
-              {WhiteLabeling?.createLogoComponentFn?.(React, props) || <Icons.Logo />}
-            </div>
+            <Icons.Back />
+            <span className="ml-[10px] mr-1 text-[17px]">{t('Header:CT Viewer')}</span>
+            <Icons.CareRight />
           </div>
         </div>
-        <div className="absolute top-1/2 left-[250px] h-8 -translate-y-1/2">{Secondary}</div>
+        {/* <div className="absolute top-1/2 left-[250px] h-8 -translate-y-1/2">{Secondary}</div> */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
           <div className="flex items-center justify-center space-x-2">{children}</div>
         </div>
-        <div className="absolute right-0 top-1/2 flex -translate-y-1/2 select-none items-center">
+        {/* <div className="absolute right-0 top-1/2 flex -translate-y-1/2 select-none items-center">
           {PatientInfo}
           <div className="border-gray mx-1.5 h-[25px] border-r"></div>
           <div className="flex-shrink-0">
@@ -112,7 +111,7 @@ function Header({
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
-        </div>
+        </div> */}
       </div>
     </NavBar>
   );

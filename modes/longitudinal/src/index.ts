@@ -104,15 +104,28 @@ function modeFactory({ modeConfiguration }) {
       toolbarService.addButtons([...toolbarButtons, ...moreTools]);
       toolbarService.createButtonSection('primary', [
         'Import',
-        'MeasurementTools',
+        // 'MeasurementTools',
+        'Length',
+        'ArrowAnnotate',
+        'CircleROI',
+        'Divider1',
         'Zoom',
         'Pan',
         'TrackballRotate',
         'WindowLevel',
         'Capture',
-        'Layout',
+        'Divider2',
+        // 'Layout',
+        'LayoutCommon',
+        'Layout3DForUp',
+        'LayoutAxialPrimary',
+        'Divider3',
         'Crosshairs',
-        'MoreTools',
+        // 'MoreTools',
+        'Reset',
+        'Probe',
+        'Angle',
+        'WindowLevelRegion',
       ]);
 
       // // ActivatePanel event trigger for when a segmentation or measurement is added.

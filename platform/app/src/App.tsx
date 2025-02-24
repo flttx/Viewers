@@ -71,6 +71,20 @@ function App({
     };
 
     run();
+
+    const currentLanguage = localStorage.getItem('i18nextLng') || '';
+    if (currentLanguage) {
+      i18n.changeLanguage(currentLanguage);
+    }
+
+    // 监听父窗口消息
+    window.addEventListener('message', event => {
+      const { type, language } = event.data;
+
+      if (type === 'language-change') {
+        i18n.changeLanguage(language);
+      }
+    });
   }, []);
 
   if (!init) {

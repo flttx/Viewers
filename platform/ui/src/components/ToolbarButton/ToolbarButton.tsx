@@ -50,7 +50,7 @@ const ToolbarButton = ({
       >
         <IconButton
           size={sizeToUse}
-          className={classNames(className, disabled ? 'ohif-disabled' : '')}
+          className={classNames(className, 'bg-white', disabled ? 'ohif-disabled' : '')}
           onClick={() => {
             onInteraction({
               itemId: id,

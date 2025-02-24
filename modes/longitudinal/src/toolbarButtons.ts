@@ -35,100 +35,137 @@ const toolbarButtons: Button[] = [
     },
   },
   {
-    id: 'MeasurementTools',
-    uiType: 'ohif.splitButton',
+    id: 'Length',
+    uiType: 'ohif.radioGroup',
     props: {
-      groupId: 'MeasurementTools',
-      // group evaluate to determine which item should move to the top
-      evaluate: 'evaluate.group.promoteToPrimaryIfCornerstoneToolNotActiveInTheList',
-      primary: createButton({
-        id: 'Length',
-        icon: 'tool-length',
-        label: 'Length',
-        tooltip: 'Length Tool',
-        commands: setToolActiveToolbar,
-        evaluate: 'evaluate.cornerstoneTool',
-      }),
-      secondary: {
-        icon: 'chevron-down',
-        tooltip: 'More Measure Tools',
-      },
-      items: [
-        createButton({
-          id: 'Length',
-          icon: 'tool-length',
-          label: 'Length',
-          tooltip: 'Length Tool',
-          commands: setToolActiveToolbar,
-          evaluate: 'evaluate.cornerstoneTool',
-        }),
-        createButton({
-          id: 'Bidirectional',
-          icon: 'tool-bidirectional',
-          label: 'Bidirectional',
-          tooltip: 'Bidirectional Tool',
-          commands: setToolActiveToolbar,
-          evaluate: 'evaluate.cornerstoneTool',
-        }),
-        createButton({
-          id: 'ArrowAnnotate',
-          icon: 'tool-annotate',
-          label: 'Annotation',
-          tooltip: 'Arrow Annotate',
-          commands: setToolActiveToolbar,
-          evaluate: 'evaluate.cornerstoneTool',
-        }),
-        createButton({
-          id: 'EllipticalROI',
-          icon: 'tool-ellipse',
-          label: 'Ellipse',
-          tooltip: 'Ellipse ROI',
-          commands: setToolActiveToolbar,
-          evaluate: 'evaluate.cornerstoneTool',
-        }),
-        createButton({
-          id: 'RectangleROI',
-          icon: 'tool-rectangle',
-          label: 'Rectangle',
-          tooltip: 'Rectangle ROI',
-          commands: setToolActiveToolbar,
-          evaluate: 'evaluate.cornerstoneTool',
-        }),
-        createButton({
-          id: 'CircleROI',
-          icon: 'tool-circle',
-          label: 'Circle',
-          tooltip: 'Circle Tool',
-          commands: setToolActiveToolbar,
-          evaluate: 'evaluate.cornerstoneTool',
-        }),
-        createButton({
-          id: 'PlanarFreehandROI',
-          icon: 'icon-tool-freehand-roi',
-          label: 'Freehand ROI',
-          tooltip: 'Freehand ROI',
-          commands: setToolActiveToolbar,
-          evaluate: 'evaluate.cornerstoneTool',
-        }),
-        createButton({
-          id: 'SplineROI',
-          icon: 'icon-tool-spline-roi',
-          label: 'Spline ROI',
-          tooltip: 'Spline ROI',
-          commands: setToolActiveToolbar,
-          evaluate: 'evaluate.cornerstoneTool',
-        }),
-        createButton({
-          id: 'LivewireContour',
-          icon: 'icon-tool-livewire',
-          label: 'Livewire tool',
-          tooltip: 'Livewire tool',
-          commands: setToolActiveToolbar,
-          evaluate: 'evaluate.cornerstoneTool',
-        }),
-      ],
+      icon: 'tool-length',
+      label: 'Length',
+      tooltip: 'Length Tool',
+      commands: setToolActiveToolbar,
+      evaluate: 'evaluate.cornerstoneTool',
     },
   },
+  {
+    id: 'ArrowAnnotate',
+    uiType: 'ohif.radioGroup',
+    props: {
+      icon: 'tool-annotate',
+      label: 'Annotation',
+      tooltip: 'Arrow Annotate',
+      commands: setToolActiveToolbar,
+      evaluate: 'evaluate.cornerstoneTool',
+    },
+  },
+  {
+    id: 'CircleROI',
+    uiType: 'ohif.radioGroup',
+    props: {
+      icon: 'tool-circle',
+      label: 'Circle',
+      tooltip: 'Circle Tool',
+      commands: setToolActiveToolbar,
+      evaluate: 'evaluate.cornerstoneTool',
+    },
+  },
+  {
+    id: 'Divider1',
+    uiType: 'ohif.divider',
+  },
+  // {
+  //   id: 'MeasurementTools',
+  //   uiType: 'ohif.splitButton',
+  //   props: {
+  //     groupId: 'MeasurementTools',
+  //     // group evaluate to determine which item should move to the top
+  //     evaluate: 'evaluate.group.promoteToPrimaryIfCornerstoneToolNotActiveInTheList',
+  //     primary: createButton({
+  //       id: 'Length',
+  //       icon: 'tool-length',
+  //       label: 'Length',
+  //       tooltip: 'Length Tool',
+  //       commands: setToolActiveToolbar,
+  //       evaluate: 'evaluate.cornerstoneTool',
+  //     }),
+  //     secondary: {
+  //       icon: 'chevron-down',
+  //       tooltip: 'More Measure Tools',
+  //     },
+  //     items: [
+  //       createButton({
+  //         id: 'Length',
+  //         icon: 'tool-length',
+  //         label: 'Length',
+  //         tooltip: 'Length Tool',
+  //         commands: setToolActiveToolbar,
+  //         evaluate: 'evaluate.cornerstoneTool',
+  //       }),
+  //       createButton({
+  //         id: 'Bidirectional',
+  //         icon: 'tool-bidirectional',
+  //         label: 'Bidirectional',
+  //         tooltip: 'Bidirectional Tool',
+  //         commands: setToolActiveToolbar,
+  //         evaluate: 'evaluate.cornerstoneTool',
+  //       }),
+  //       createButton({
+  //         id: 'ArrowAnnotate',
+  //         icon: 'tool-annotate',
+  //         label: 'Annotation',
+  //         tooltip: 'Arrow Annotate',
+  //         commands: setToolActiveToolbar,
+  //         evaluate: 'evaluate.cornerstoneTool',
+  //       }),
+  //       createButton({
+  //         id: 'EllipticalROI',
+  //         icon: 'tool-ellipse',
+  //         label: 'Ellipse',
+  //         tooltip: 'Ellipse ROI',
+  //         commands: setToolActiveToolbar,
+  //         evaluate: 'evaluate.cornerstoneTool',
+  //       }),
+  //       createButton({
+  //         id: 'RectangleROI',
+  //         icon: 'tool-rectangle',
+  //         label: 'Rectangle',
+  //         tooltip: 'Rectangle ROI',
+  //         commands: setToolActiveToolbar,
+  //         evaluate: 'evaluate.cornerstoneTool',
+  //       }),
+  //       createButton({
+  //         id: 'CircleROI',
+  //         icon: 'tool-circle',
+  //         label: 'Circle',
+  //         tooltip: 'Circle Tool',
+  //         commands: setToolActiveToolbar,
+  //         evaluate: 'evaluate.cornerstoneTool',
+  //       }),
+  //       createButton({
+  //         id: 'PlanarFreehandROI',
+  //         icon: 'icon-tool-freehand-roi',
+  //         label: 'Freehand ROI',
+  //         tooltip: 'Freehand ROI',
+  //         commands: setToolActiveToolbar,
+  //         evaluate: 'evaluate.cornerstoneTool',
+  //       }),
+  //       createButton({
+  //         id: 'SplineROI',
+  //         icon: 'icon-tool-spline-roi',
+  //         label: 'Spline ROI',
+  //         tooltip: 'Spline ROI',
+  //         commands: setToolActiveToolbar,
+  //         evaluate: 'evaluate.cornerstoneTool',
+  //       }),
+  //       createButton({
+  //         id: 'LivewireContour',
+  //         icon: 'icon-tool-livewire',
+  //         label: 'Livewire tool',
+  //         tooltip: 'Livewire tool',
+  //         commands: setToolActiveToolbar,
+  //         evaluate: 'evaluate.cornerstoneTool',
+  //       }),
+  //     ],
+  //   },
+  // },
   {
     id: 'Zoom',
     uiType: 'ohif.radioGroup',
@@ -199,6 +236,10 @@ const toolbarButtons: Button[] = [
     },
   },
   {
+    id: 'Divider2',
+    uiType: 'ohif.divider',
+  },
+  {
     id: 'Layout',
     uiType: 'ohif.layoutSelector',
     props: {
@@ -206,6 +247,71 @@ const toolbarButtons: Button[] = [
       columns: 4,
       evaluate: 'evaluate.action',
     },
+  },
+  {
+    id: 'LayoutCommon',
+    uiType: 'ohif.radioGroup',
+    props: {
+      icon: 'layout-common-1x1',
+      label: 'Common Layout',
+      commands: {
+        commandName: 'setViewportGridLayout',
+        commandOptions: {
+          numCols: 1,
+          numRows: 1,
+        },
+      },
+      evaluate: ({ button }) => {
+        return {
+          disabled: false,
+          className: 'text-button hover:bg-primary hover:text-white rounded',
+        };
+      },
+    },
+  },
+  {
+    id: 'Layout3DForUp',
+    uiType: 'ohif.radioGroup',
+    props: {
+      icon: 'layout-advanced-3d-four-up',
+      label: '3D for up Layout',
+      commands: {
+        commandName: 'setHangingProtocol',
+        commandOptions: {
+          protocolId: 'fourUp',
+        },
+      },
+      evaluate: ({ button }) => {
+        return {
+          disabled: false,
+          className: 'text-button hover:bg-primary hover:text-white rounded',
+        };
+      },
+    },
+  },
+  {
+    id: 'LayoutAxialPrimary',
+    uiType: 'ohif.radioGroup',
+    props: {
+      icon: 'layout-advanced-axial-primary',
+      label: 'Axial Primary Layout',
+      commands: {
+        commandName: 'setHangingProtocol',
+        commandOptions: {
+          protocolId: 'primaryAxial',
+        },
+      },
+      evaluate: ({ button }) => {
+        return {
+          disabled: false,
+          className: 'text-button hover:bg-primary hover:text-white rounded',
+        };
+      },
+    },
+  },
+  {
+    id: 'Divider3',
+    uiType: 'ohif.divider',
   },
   {
     id: 'Crosshairs',

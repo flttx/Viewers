@@ -143,6 +143,9 @@ function LayoutSelector({
   const advancedPresets =
     customizationService.get('advancedPresets') || generateAdvancedPresets({ servicesManager });
 
+  console.log('commonPresets:', commonPresets);
+  console.log('advancedPresets:', advancedPresets);
+
   const closeOnOutsideClick = event => {
     if (isOpen && dropdownRef.current) {
       setIsOpen(false);
