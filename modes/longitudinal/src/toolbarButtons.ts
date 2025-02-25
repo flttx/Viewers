@@ -313,25 +313,25 @@ const toolbarButtons: Button[] = [
     id: 'Divider3',
     uiType: 'ohif.divider',
   },
-  {
-    id: 'Crosshairs',
-    uiType: 'ohif.radioGroup',
-    props: {
-      type: 'tool',
-      icon: 'tool-crosshair',
-      label: 'Crosshairs',
-      commands: {
-        commandName: 'setToolActiveToolbar',
-        commandOptions: {
-          toolGroupIds: ['mpr'],
-        },
-      },
-      evaluate: {
-        name: 'evaluate.cornerstoneTool',
-        disabledText: 'Select an MPR viewport to enable this tool',
-      },
-    },
-  },
+  // {
+  //   id: 'Crosshairs',
+  //   uiType: 'ohif.radioGroup',
+  //   props: {
+  //     type: 'tool',
+  //     icon: 'tool-crosshair',
+  //     label: 'Crosshairs',
+  //     commands: {
+  //       commandName: 'setToolActiveToolbar',
+  //       commandOptions: {
+  //         toolGroupIds: ['mpr'],
+  //       },
+  //     },
+  //     evaluate: {
+  //       name: 'evaluate.cornerstoneTool',
+  //       disabledText: 'Select an MPR viewport to enable this tool',
+  //     },
+  //   },
+  // },
 ];
 
 export default toolbarButtons;

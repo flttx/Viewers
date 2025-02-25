@@ -65,5 +65,10 @@
   "Dicom Tag Browser": "Dicom Tag Browser",
   "Magnify Probe": "Magnify Probe",
   "Ultrasound Directional": "Ultrasound Directional",
-  "Window Level Region": "Window Level Region"
+  "Window Level Region": "Window Level Region",
+  "3D Rotate": "3D Rotate",
+  "Select a 3D viewport to enable this tool": "Select a 3D viewport to enable this tool",
+  "Common Layout": "Common Layout",
+  "3D for up Layout": "3D for up Layout",
+  "Axial Primary Layout": "Axial Primary Layout"
 }

@@ -82,5 +82,10 @@
   "Dicom Tag Browser": "Dicom标签浏览器",
   "Magnify Probe": "放大探针",
   "Ultrasound Directional": "超声方向",
-  "Window Level Region": "窗位区域"
+  "Window Level Region": "窗位区域",
+  "3D Rotate": "三维旋转",
+  "Select a 3D viewport to enable this tool": "请选择一个三维视图来激活此工具",
+  "Common Layout": "常用布局",
+  "3D for up Layout": "主三维布局",
+  "Axial Primary Layout": "主轴向布局"
 }

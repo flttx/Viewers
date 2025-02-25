@@ -120,7 +120,7 @@ function modeFactory({ modeConfiguration }) {
         'Layout3DForUp',
         'LayoutAxialPrimary',
         'Divider3',
-        'Crosshairs',
+        // 'Crosshairs',
         // 'MoreTools',
         'Reset',
         'Probe',
