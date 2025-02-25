@@ -125,6 +125,15 @@ function Local({ modePath, commandManager }: LocalProps) {
   // Set body style
   useEffect(() => {
     document.body.classList.add('bg-background');
+
+    // 通知父窗口页面渲染完成
+    window.parent.postMessage(
+      {
+        type: 'ct-viewer-loaded',
+      },
+      '*'
+    );
+
     return () => {
       document.body.classList.remove('bg-background');
     };
