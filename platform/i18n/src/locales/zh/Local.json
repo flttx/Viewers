@@ -2,7 +2,13 @@
   "Load files": "加载文件",
   "Load folders": "加载文件夹",
   "Note": "注意",
-  "You data is not uploaded to any server": "您的数据未上传至任何服务器，它将保留在您的本地浏览器应用程序中。",
+  "You data is not uploaded to any server": "您的数据未上传至任何服务器，刷新后数据会丢失。",
   "Drag and Drop DICOM files here to load them in the Viewer": "将DICOM文件拖放到此处加载",
-  "Or click to": "或点击"
+  "Or click to": "或点击",
+  "Only support standard DICOM files": "只支持标准DICOM文件",
+  "View verification method": "查看验证方法",
+  "Verification method": "验证方法",
+  "View with MicroDicom Viewer": "使用软件MicroDicom Viewer查看",
+  "Check DICOM Tags": "检查DICOM Tags",
+  "Check if there are key fields": "检查是否有关键字段：File Meta Information Group Length和Transfer Syntax UID"
 }

@@ -9,7 +9,7 @@ import filesToStudies from './filesToStudies';
 
 import { extensionManager } from '../../App.tsx';
 
-import { Icon, Button, LoadingIndicatorProgress } from '@ohif/ui';
+import { Icon, Button, LoadingIndicatorProgress, Tooltip } from '@ohif/ui';
 import { Icons } from '@ohif/ui-next';
 
 const getLoadButton = (onDrop, text, isDir) => {
@@ -54,7 +54,7 @@ type LocalProps = {
   modePath: string;
 };
 
-function Local({ modePath, commandManager }: LocalProps) {
+function Local({ modePath }: LocalProps) {
   const navigate = useNavigate();
   const dropzoneRef = useRef();
   const [dropInitiated, setDropInitiated] = React.useState(false);
@@ -82,6 +82,9 @@ function Local({ modePath, commandManager }: LocalProps) {
   const onDrop = async acceptedFiles => {
     const studies = await filesToStudies(acceptedFiles);
     console.log('studies:', studies);
+    if (!studies || studies.length === 0) {
+      return;
+    }
 
     const query = new URLSearchParams();
 
@@ -176,9 +179,36 @@ function Local({ modePath, commandManager }: LocalProps) {
                   </div>
                 ) : (
                   <div className="space-y-2">
-                    <p className="text-base text-gray-500">
-                      {t('Note')}：{t('You data is not uploaded to any server')}
+                    <p className="flex text-base text-gray-500">
+                      {t('Note')}：{' '}
+                      <ul>
+                        <li className="text-left">
+                          1.{t('Only support standard DICOM files')}，
+                          <Tooltip
+                            content={
+                              <div className="flex flex-col">
+                                <span className="font-bold">{t('Verification method')}：</span>
+                                <ul className="list-disc pl-4">
+                                  <li>{t('View with MicroDicom Viewer')}</li>
+                                  <li>{t('Check DICOM Tags')}</li>
+                                  <li>{t('Check if there are key fields')}</li>
+                                </ul>
+                              </div>
+                            }
+                            position="right"
+                            className="inline-flex"
+                          >
+                            <span className="text-primary cursor-pointer">
+                              {t('View verification method')}
+                            </span>
+                          </Tooltip>
+                        </li>
+                        <li className="text-left">
+                          2.{t('You data is not uploaded to any server')}
+                        </li>
+                      </ul>
                     </p>
+
                     <p className="text-xg pt-6 font-semibold text-gray-700">
                       {t('Drag and Drop DICOM files here to load them in the Viewer')}
                     </p>

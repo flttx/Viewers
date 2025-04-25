@@ -2,7 +2,13 @@
   "Load files": "Load files",
   "Load folders": "Load folders",
   "Note": "Note",
-  "You data is not uploaded to any server": "You data is not uploaded to any server, it will stay in your local browser application",
+  "You data is not uploaded to any server": "You data is not uploaded to any server, it will be lost after refreshing",
   "Drag and Drop DICOM files here to load them in the Viewer": "Drag and Drop DICOM files here to load them in the Viewer",
-  "Or click to": "Or click to"
+  "Or click to": "Or click to",
+  "Only support standard DICOM files": "Only support standard DICOM files",
+  "View verification method": "View verification method",
+  "Verification method": "Verification method",
+  "View with MicroDicom Viewer": "View using MicroDicom Viewer software",
+  "Check DICOM Tags": "Check DICOM Tags",
+  "Check if there are key fields": "Check if there are key fields: File Meta Information Group Length,Transfer Syntax UID"
 }
