@@ -316,7 +316,7 @@ const Thumbnail = ({
                 className="gap-[6px]"
               >
                 <Icons.DicomTagBrowser />
-                Tag Browser
+                {i18n.t('Buttons:Tag Browser').toString()}
               </DropdownMenuItem>
               {canReject && (
                 <DropdownMenuItem

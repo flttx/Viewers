@@ -81,6 +81,7 @@ function Local({ modePath }: LocalProps) {
 
   const onDrop = async acceptedFiles => {
     const studies = await filesToStudies(acceptedFiles);
+    setDropInitiated(false);
     console.log('studies:', studies);
     if (!studies || studies.length === 0) {
       return;
@@ -179,7 +180,7 @@ function Local({ modePath }: LocalProps) {
                   </div>
                 ) : (
                   <div className="space-y-2">
-                    <p className="flex text-base text-gray-500">
+                    <div className="flex text-base text-gray-500">
                       {t('Note')}：{' '}
                       <ul>
                         <li className="text-left">
@@ -188,11 +189,11 @@ function Local({ modePath }: LocalProps) {
                             content={
                               <div className="flex flex-col">
                                 <span className="font-bold">{t('Verification method')}：</span>
-                                <ul className="list-disc pl-4">
-                                  <li>{t('View with MicroDicom Viewer')}</li>
-                                  <li>{t('Check DICOM Tags')}</li>
-                                  <li>{t('Check if there are key fields')}</li>
-                                </ul>
+                                <div className="flex list-disc flex-col pl-4">
+                                  <span>1. {t('View with MicroDicom Viewer')}</span>
+                                  <span>2. {t('Check DICOM Tags')}</span>
+                                  <span>3. {t('Check if there are key fields')}</span>
+                                </div>
                               </div>
                             }
                             position="right"
@@ -207,7 +208,7 @@ function Local({ modePath }: LocalProps) {
                           2.{t('You data is not uploaded to any server')}
                         </li>
                       </ul>
-                    </p>
+                    </div>
 
                     <p className="text-xg pt-6 font-semibold text-gray-700">
                       {t('Drag and Drop DICOM files here to load them in the Viewer')}
@@ -217,8 +218,22 @@ function Local({ modePath }: LocalProps) {
                 )}
               </div>
               <div className="flex justify-around pt-4">
-                {getLoadButton(onDrop, t('Load files'), false)}
-                {getLoadButton(onDrop, t('Load folders'), true)}
+                {getLoadButton(
+                  acceptedFiles => {
+                    setDropInitiated(true);
+                    onDrop(acceptedFiles);
+                  },
+                  t('Load files'),
+                  false
+                )}
+                {getLoadButton(
+                  acceptedFiles => {
+                    setDropInitiated(true);
+                    onDrop(acceptedFiles);
+                  },
+                  t('Load folders'),
+                  true
+                )}
               </div>
             </div>
           </div>
