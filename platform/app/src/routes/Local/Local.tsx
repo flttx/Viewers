@@ -116,16 +116,6 @@ function Local({ modePath }: LocalProps) {
     navigate(`/viewer/dicomlocal?${query.toString()}`);
   };
 
-  const onClickReturn = () => {
-    // 通知父窗口返回到工作列表
-    window.parent.postMessage(
-      {
-        type: 'back-to-case',
-      },
-      '*'
-    );
-  };
-
   // Set body style
   useEffect(() => {
     document.body.classList.add('bg-background');
@@ -158,17 +148,6 @@ function Local({ modePath }: LocalProps) {
           style={{ width: '100%', height: '100%' }}
         >
           <div className="flex h-screen w-screen items-center justify-center">
-            <div className="absolute left-0 top-[10px] flex items-center">
-              <div
-                className={classnames('mr-3 inline-flex cursor-pointer items-center')}
-                onClick={onClickReturn}
-                data-cy="return-to-work-list"
-              >
-                <Icons.Back />
-                <span className="ml-[10px] mr-1 text-[17px]">{t('Header:CT Viewer')}</span>
-                <Icons.CareRight />
-              </div>
-            </div>
             <div className="bg-secondary mx-auto space-y-2 rounded-lg py-8 px-8 drop-shadow-md">
               <div className="flex items-center justify-center">
                 <Icons.Logo className="w-50 h-16" />
