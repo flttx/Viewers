@@ -1,15 +1,4 @@
 import React, { ReactNode } from 'react';
-import classNames from 'classnames';
-import { useTranslation } from 'react-i18next';
-import {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  Icons,
-  Button,
-} from '../';
-
 import NavBar from '../NavBar';
 
 // Todo: we should move this component to composition and remove props base
@@ -42,34 +31,13 @@ function Header({
   Secondary,
   ...props
 }: HeaderProps): ReactNode {
-  const onClickReturn = () => {
-    // 通知父窗口返回到工作列表
-    window.parent.postMessage(
-      {
-        type: 'back-to-case',
-      },
-      '*'
-    );
-  };
-  const { t } = useTranslation();
-
   return (
     <NavBar
       isSticky={isSticky}
       {...props}
     >
-      <div className="relative mb-[30px] h-[48px] items-center">
-        <div className="absolute left-0 top-1/2 flex -translate-y-1/2 items-center">
-          <div
-            className={classNames('mr-3 inline-flex cursor-pointer items-center')}
-            onClick={onClickReturn}
-            data-cy="return-to-work-list"
-          >
-            <Icons.Back />
-            <span className="ml-[10px] mr-1 text-[17px]">{t('Header:CT Viewer')}</span>
-            <Icons.CareRight />
-          </div>
-        </div>
+      <div className="relative mb-[16px] h-[48px] items-center">
+        <div className="absolute left-0 top-1/2 flex -translate-y-1/2 items-center"></div>
         {/* <div className="absolute top-1/2 left-[250px] h-8 -translate-y-1/2">{Secondary}</div> */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transform">
           <div className="flex items-center justify-center space-x-2">{children}</div>
