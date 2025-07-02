@@ -80,7 +80,10 @@ function Local({ modePath }: LocalProps) {
   );
 
   const onDrop = async acceptedFiles => {
-    const studies = await filesToStudies(acceptedFiles);
+    const dcmFiles = acceptedFiles.filter(
+      item => item.path.includes('.dcm') || item.path.includes('.dicom')
+    );
+    const studies = await filesToStudies(dcmFiles);
     setDropInitiated(false);
     console.log('studies:', studies);
     if (!studies || studies.length === 0) {
